@@ -18,7 +18,7 @@
   "cpus": 0.1,
   "instances": 1,
   "labels": {
-    "HAPROXY_0_VHOST": "54.200.42.57",
+    "HAPROXY_0_VHOST": "34.223.7.218",
     "HAPROXY_GROUP": "external",
     "lastChangedBy": "velocity-team@mesosphere.com"
   },
