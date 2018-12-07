@@ -296,8 +296,8 @@ def create_job(jenkins_url, job_name, job_config):
     try:
         r = http.post(post_url, headers=headers, data=job_config)
     except Exception as e:
-        log("!! failed to create job '{}'".format(job_name))
-        log("!! {}".format(e))
+        log("!! failed to create job '{}' or already existing".format(job_name))
+        log("!! Jenkins Response:{}".format(e))
 
 def delete_job(jenkins_url, job_name):
     log("deleting job {}".format(job_name))
