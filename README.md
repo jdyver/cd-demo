@@ -1,4 +1,4 @@
-# cd-demo
+# cd-demo-jd
 A continuous delivery demo using Jenkins on DC/OS.
 
 This demo is a Python script that, when run with the `install` command, will:
