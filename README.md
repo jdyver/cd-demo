@@ -1,6 +1,13 @@
 # cd-demo-jd
 A continuous delivery demo using Jenkins on DC/OS.
 
+## Current Possibilities
+1. Manual Git build, Docker pull and Jenkins deploy
+
+
+
+
+
 This demo is a Python script that, when run with the `install` command, will:
 
 1. Installs Jenkins if it isn't already available.
