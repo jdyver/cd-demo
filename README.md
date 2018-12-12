@@ -1,12 +1,11 @@
 # cd-demo-jd
-A continuous delivery demo using Jenkins on DC/OS.
-- Props to the original creator, but credentials are problematic for the original instructions
+A scale and continuous delivery demo using Jenkins on DC/OS.
+- Props to the original creator, but Mesosphere Git and Docker credentials are problematic for the original instructions
 
 ## Current Possibilities
 1. Manual Deployment
 - Git build, Docker pull and automatic Jenkins deploy
 - Show that this is a functional Jenkins
-
 2. Scaled Deployment
 - Show that this is a scalable Jenkins by executing 50 jobs
 
@@ -26,8 +25,9 @@ A continuous delivery demo using Jenkins on DC/OS.
             git remote set-url origin git@github.com:jdyver/cd-demo.git (your repo)
 
 ### 1. Edit - Manual Git build, Docker pull and Jenkins deploy
-1. conf/cd-demo-app.json:
-- edit line 21: "HAPROXY_0_VHOST": "<Public Agent IP>",
+1. Within Git - 
+1a. conf/cd-demo-app.json:
+    - edit line 21: "HAPROXY_0_VHOST": "<Public Agent IP>",
 
 2. Within Jenkins -
 2a. Credentials > System > Global > Add User: Add Github and Dockerhub accounts
