@@ -1,5 +1,5 @@
 {
-  "id": "/jenkins-deployed-app",
+  "id": "/jenkins-deployed-app1",
   "cmd": "jekyll serve",
   "container": {
     "type": "DOCKER",
