@@ -24,12 +24,19 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
     `pip3 install -r requirements.txt`
 
 3. Git: Create branch
+
     a. git checkout -b testing
+    
     b. git push origin testing
+    
     c. (if push fails)
+    
         - Setup Git SSH Key (https://help.github.com/articles/generating-an-ssh-key/)
+        
         - (ssh -T git@github.com success, but push still fails) 
+        
             git remote set-url origin git@github.com:jdyver/cd-demo.git (your repo)
+            
 
 ### 1. Edit - Manual Git build, Docker pull and Jenkins deploy
 1. Within Git - 
