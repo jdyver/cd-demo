@@ -47,23 +47,23 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
     - edit line 21: "HAPROXY_0_VHOST": "<Public Agent IP>",
 
 2. Within Jenkins -
-2a. Credentials > System > Global > Add User: Add Github and Dockerhub accounts
+2a. Credentials > System > Global > Add User (Input Description): Add Github and Dockerhub accounts
 2b. New Job > Freestyle
     1. Source Code Mgmt > Git > 
-        1. Repo URL: https://github.com/jdyver/cd-demo (Your Git URL)
-        2. Credentials: Github
+        1. Repo URL: `https://github.com/jdyver/cd-demo` (Your Git URL)
+        2. Credentials: `Github`
     2. OPT - Auto Build (1 minute)
         1. Project Name > Configure > Build Triggers > Poll SCM
             1. Input: 
                  `* * * * *`
     3. Build > [+ Build Step] > Docker Build and Publish > 
-        1. Repo Name: jdyver/cd-demo 
-        2. Tag: $GIT_COMMIT 
-        3. Registry credentials: Dockerhub
+        1. Repo Name: `jdyver/cd-demo`
+        2. Tag: `$GIT_COMMIT`
+        3. Registry credentials: `Dockerhub`
     4. Post-build Actions > [+ Post-build action] > Marathon Deployment > [Advanced] >
-        1. Marathon URL: http://leader.mesos:8080
-        2. Definition File: conf/cd-demo-app.json
-        3. Docker Image: jdyver/cd-demo:$GIT_COMMIT
+        1. Marathon URL: `http://leader.mesos:8080`
+        2. Definition File: `conf/cd-demo-app.json`
+        3. Docker Image: `jdyver/cd-demo:$GIT_COMMIT`
 
 3. site/_posts/2016-02-25-welcome-to-cd-demo.markdown
 - edit site
