@@ -21,7 +21,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
     b. Centos: https://www.rosehosting.com/blog/how-to-install-python-3-6-4-on-centos-7/
 2. Pip3: Install requirements
 
-`pip3 install -r requirements.txt`
+    `pip3 install -r requirements.txt`
 
 3. Git: Create branch
     a. git checkout -b testing
