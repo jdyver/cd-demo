@@ -76,7 +76,10 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 `dcos cluster add http://<your url>`
 
 2. Install Jenkins
-2a. 
+
+2a. Through CLI or UI
+
+`cd-demo jamesdyckowski$ dcos package install --yes jenkins`
 
 2b. OPTION (Do not do this if you do not do 2a) 
 
