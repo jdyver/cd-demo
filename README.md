@@ -79,7 +79,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 2a. Through CLI or UI
 
-`cd-demo jamesdyckowski$ dcos package install --yes jenkins`
+`cd-demo jd$ dcos package install --yes jenkins`
 
 2b. OPTION (Do not do this if you do not do 2a) 
 
