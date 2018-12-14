@@ -11,12 +11,17 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 ### 0. Prerequisites
 - I just wish this wasn't the case
-#### 0.1 - Only needed for Manual
+#### 0.1 - Only needed for Manual Deployment
 1. Clone cd-demo to your unit and create Git repo
 - git clone https://github.com/jdyver/cd-demo.git
 
-#### 0.2 - Needed for Scaled Deployment
-1. Create branch
+#### 0.2 - Additional Steps Needed for Scaled Deployment
+1. Setup Python3 and Pip3 (painful 30 minute installation - Just google away to get it right; I'll try to change this to bash later)
+    a. OSX: https://docs.python-guide.org/starting/install3/osx/
+    b. Centos: https://www.rosehosting.com/blog/how-to-install-python-3-6-4-on-centos-7/
+2. Pip3: Install requirements
+`pip3 install -r requirements.txt`
+3. Git: Create branch
     a. git checkout -b testing
     b. git push origin testing
     c. (if push fails)
