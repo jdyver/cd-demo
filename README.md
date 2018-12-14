@@ -42,6 +42,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
             
 
 ### 1. Edit - Manual Git build, Docker pull and Jenkins deploy
+0. Prerequisite 0.1
 1. Within Git - 
 1a. conf/cd-demo-app.json:
     - edit line 21: "HAPROXY_0_VHOST": "<Public Agent IP>",
@@ -69,6 +70,24 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 - edit site
 
 ### 2. Deploy 50 Jobs
+0. Prerequisites 0.1 and 0.2
+1. Single cluster configured for CLI
+`dcos cluster remove --all`
+`dcos cluster add http://<your url>`
+
+2. Install Jenkins
+2a. 
+
+2b. OPTION (Do not do this if you do not do 2a) 
+
+`cd-demo jd$ python3 bin/demo.py install --latest http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
+
+— <b>slash at the end of the URL!</b>
+
+3. Run script
+
+`cd-demo jd$ python3 bin/demo.py dynamic-agents http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
+
 
 # ORIGINAL INSTRUCTIONS - TO BE TERMINATED (REF: mesosphere/cd-demo)
 This demo is a Python script that, when run with the `install` command, will:
