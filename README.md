@@ -55,7 +55,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
     2. OPT - Auto Build (1 minute)
         1. Project Name > Configure > Build Triggers > Poll SCM
             1. Input: 
-             '* * * * *'
+                 `* * * * *`
     3. Build > [+ Build Step] > Docker Build and Publish > 
         1. Repo Name: jdyver/cd-demo 
         2. Tag: $GIT_COMMIT 
