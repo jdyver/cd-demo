@@ -2,6 +2,8 @@
 A scale and continuous delivery demo using Jenkins on DC/OS.
 - Props to the original creator, but Mesosphere Git and Docker credentials are problematic for the original instructions
 
+## Add Pictures
+
 ## Current Possibilities
 1. Manual Deployment
 - Git build, Docker pull and automatic Jenkins deploy
@@ -91,6 +93,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 `cd-demo jd$ python3 bin/demo.py dynamic-agents http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
 
+— <b>slash at the end of the URL!</b>
 
 # ORIGINAL INSTRUCTIONS - TO BE TERMINATED (REF: mesosphere/cd-demo)
 This demo is a Python script that, when run with the `install` command, will:
