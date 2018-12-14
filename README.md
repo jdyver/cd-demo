@@ -45,7 +45,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 0. Prerequisite 0.1
 1. Within Git - 
 1a. conf/cd-demo-app.json:
-    - edit line 21: "HAPROXY_0_VHOST": "<Public Agent IP>",
+    - edit line 21: "HAPROXY_0_VHOST": "\<Public Agent IP\>",
 
 2. Within Jenkins -
 2a. Credentials > System > Global > Add User (Input Description): Add Github and Dockerhub accounts
