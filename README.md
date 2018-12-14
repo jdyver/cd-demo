@@ -22,6 +22,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 2. Pip3: Install requirements
 
 `pip3 install -r requirements.txt`
+
 3. Git: Create branch
     a. git checkout -b testing
     b. git push origin testing
