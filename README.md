@@ -1,6 +1,114 @@
 # cd-demo-jd
-A continuous delivery demo using Jenkins on DC/OS.
+A scale and continuous delivery demo using Jenkins on DC/OS.
+- Props to the original creator, but Mesosphere Git and Docker credentials are problematic for the original instructions
 
+## Add Pictures
+
+## Current Possibilities
+1. Manual Deployment
+- Git build, Docker pull and automatic Jenkins deploy
+- Show that this is a functional Jenkins
+2. Scaled Deployment
+- Show that this is a scalable Jenkins by executing 50 jobs
+
+### 0. Prerequisites
+- I just wish this wasn't the case
+#### 0.1 - Only needed for Manual Deployment (First run only)
+1. Clone cd-demo to your unit and create Git repo
+- git clone https://github.com/jdyver/cd-demo.git
+
+#### 0.2 - Additional Steps Needed for Scaled Deployment
+1. Setup Python3 and Pip3 (First run only needed)
+
+- painful 30 minute installation - Just google away to get it right # I'll probably try to change this to bash later
+
+    a. OSX example: https://docs.python-guide.org/starting/install3/osx/
+    
+    b. Centos example: https://www.rosehosting.com/blog/how-to-install-python-3-6-4-on-centos-7/
+    
+2. Pip3: Install requirements
+
+    `pip3 install -r requirements.txt`
+
+3. Git: Create branch (Everytime - check folder with 'git branch')
+
+    a. git checkout -b testing
+    
+    b. git push origin testing
+    
+    c. (if push fails)
+    
+      - Setup Git SSH Key (https://help.github.com/articles/generating-an-ssh-key/)    
+      - (ssh -T git@github.com success, but push still fails)  
+            git remote set-url origin git@github.com:jdyver/cd-demo.git (your repo)
+            
+
+### 1. Edit - Manual Git build, Docker pull and Jenkins deploy
+0. Prerequisite 0.1
+1. Within Git - 
+1a. conf/cd-demo-app.json:
+    - edit line 21: "HAPROXY_0_VHOST": "\<Public Agent IP\>",
+
+2. Within Jenkins -
+2a. Credentials > System > Global > Add User (Input Description): Add Github and Dockerhub accounts
+2b. New Job > Freestyle
+    1. Source Code Mgmt > Git > 
+        1. Repo URL: `https://github.com/jdyver/cd-demo` (Your Git URL)
+        2. Credentials: `Github`
+    2. OPT - Auto Build (1 minute)
+        1. Project Name > Configure > Build Triggers > Poll SCM
+            1. Input: 
+                 `* * * * *`
+    3. Build > [+ Build Step] > Docker Build and Publish > 
+        1. Repo Name: `jdyver/cd-demo`
+        2. Tag: `$GIT_COMMIT`
+        3. Registry credentials: `Dockerhub`
+    4. Post-build Actions > [+ Post-build action] > Marathon Deployment > [Advanced] >
+        1. Marathon URL: `http://leader.mesos:8080`
+        2. Definition File: `conf/cd-demo-app.json`
+        3. Docker Image: `jdyver/cd-demo:$GIT_COMMIT`
+
+3. site/_posts/2016-02-25-welcome-to-cd-demo.markdown
+- edit site
+
+### 2. Deploy 50 Jobs
+0. Prerequisites 0.1 and 0.2
+
+- 0.2 Has to be done/checked every time
+
+`git branch`
+
+1. Single cluster configured for CLI
+`dcos cluster remove --all`
+`dcos cluster add http://<your url>`
+
+2. Install Jenkins
+
+2a. Through CLI or UI
+
+`cd-demo jd$ dcos package install --yes jenkins`
+
+2b. OPTION (Do not do this if you do not do 2a) 
+
+`cd-demo jd$ python3 bin/demo.py install --latest http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
+
+— <b>slash at the end of the URL!</b>
+
+3. Run script
+
+`cd-demo jd$ python3 bin/demo.py dynamic-agents http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
+
+— <b>slash at the end of the URL!</b>
+
+
+
+
+
+
+
+# --------------------------------------------------------------------
+
+# ORIGINAL INSTRUCTIONS - TO BE TERMINATED (REF: mesosphere/cd-demo)
 This demo is a Python script that, when run with the `install` command, will:
 
 1. Installs Jenkins if it isn't already available.
