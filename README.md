@@ -30,7 +30,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
     `pip3 install -r requirements.txt`
 
-3. Git: Create branch (Any other time - check with 'git branch')
+3. Git: Create branch (Everytime - check folder with 'git branch')
 
     a. git checkout -b testing
     
@@ -73,6 +73,11 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 ### 2. Deploy 50 Jobs
 0. Prerequisites 0.1 and 0.2
+
+- 0.2 Has to be done/checked every time
+
+`git branch`
+
 1. Single cluster configured for CLI
 `dcos cluster remove --all`
 `dcos cluster add http://<your url>`
@@ -94,6 +99,14 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 `cd-demo jd$ python3 bin/demo.py dynamic-agents http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
 
 — <b>slash at the end of the URL!</b>
+
+
+
+
+
+
+
+# --------------------------------------------------------------------
 
 # ORIGINAL INSTRUCTIONS - TO BE TERMINATED (REF: mesosphere/cd-demo)
 This demo is a Python script that, when run with the `install` command, will:
