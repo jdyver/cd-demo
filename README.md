@@ -19,8 +19,11 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 #### Step 0.2 - Additional Steps Needed for Scaled Deployment
 1. Setup Python3 and Pip3 (First run only needed)
+
 - painful 30 minute installation - Just google away to get it right # I'll probably try to change this to bash later
+
     a. OSX example: https://docs.python-guide.org/starting/install3/osx/
+
     b. Centos example: https://www.rosehosting.com/blog/how-to-install-python-3-6-4-on-centos-7/
     
 2. Pip3: Install requirements
