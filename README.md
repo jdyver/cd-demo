@@ -11,13 +11,13 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 2. Scaled Deployment
 - Show that this is a scalable Jenkins by executing 50 jobs
 
-### 0. Prerequisites
+### Step 1. Prerequisites
 - I just wish this wasn't the case
-#### 0.1 - Only needed for Manual Deployment (First run only)
+#### Step 0.1 - Only needed for Manual Deployment (First run only)
 1. Clone cd-demo to your unit and create Git repo
 - git clone https://github.com/jdyver/cd-demo.git
 
-#### 0.2 - Additional Steps Needed for Scaled Deployment
+#### Step 0.2 - Additional Steps Needed for Scaled Deployment
 1. Setup Python3 and Pip3 (First run only needed)
 
 - painful 30 minute installation - Just google away to get it right # I'll probably try to change this to bash later
