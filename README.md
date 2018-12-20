@@ -50,23 +50,23 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
     - Get the Public agent IP where the Marathon-LB is deployed
     - Edit line 21: "HAPROXY_0_VHOST": "\<Public Agent IP\>",
 
-![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-Deployed-App-HAPROXY.png)
+![Edit HAPROXY](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-Deployed-App-HAPROXY.png)
 
 2. Within Jenkins -
 2a. Credentials > System > Global > Add User (Input Description): Add Github and Dockerhub accounts
 2b. New Job > Freestyle
     1. Source Code Mgmt > Git > 
         1. Repo URL: `https://github.com/jdyver/cd-demo` (Your Git URL)
-        2. Credentials: `Github`
+        2. Credentials: ```Github```
 
-![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-1.jpg)
+![Jenkins - Source Code](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-1.png)
 
     2. OPT - Auto Build (1 minute)
         1. Project Name > Configure > Build Triggers > Poll SCM
             1. Input: 
                  `* * * * *`
 
-![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-2.png)
+![Jenkins - Polling](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-2.png)
 
     3. Build > [+ Build Step] > Docker Build and Publish > 
         1. Repo Name: `jdyver/cd-demo` (Your Docker repo username + '/cd-demo')
