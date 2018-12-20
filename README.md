@@ -45,22 +45,25 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 ### 1. Edit - Manual Git build, Docker pull and Jenkins deploy
 0. Prerequisite 0.1
-1. Within Git - 
-- Github Repo: edit conf/cd-demo-app.json:
-    - Get the Public agent IP where the Marathon-LB is deployed
-    - Edit line 21: "HAPROXY_0_VHOST": "\<Public Agent IP\>",
+1. Within Github:
+    - Github cd-demo Repo: edit conf/cd-demo-app.json:
+        - Get the Public agent IP where the Marathon-LB is deployed
+        - Edit line 21: "HAPROXY_0_VHOST": "\<Public Agent IP\>",
 
 ![Edit HAPROXY](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-Deployed-App-HAPROXY.png)
 
-2. Within Jenkins -
+2. Within Jenkins:
+- Open the Jenkins UI from DC/OS
 
 2a. Credentials > System > Global > Add User (Input Description): Add Github and Dockerhub accounts
 
 2b. New Job > Freestyle
 
-    1. Source Code Mgmt > Git > 
+    1. Source Code Mgmt \> Git \>
+ 
         - Repo URL: `https://github.com/jdyver/cd-demo` (Your Git URL)
-        - Credentials: ```Github```
+
+        - Credentials: `Github`
 
 ![Jenkins - Source Code](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-1.png)
 
