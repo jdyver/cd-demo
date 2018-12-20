@@ -20,7 +20,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 #### Step 0.2 - Additional Steps Needed for Scaled Deployment
 1. Setup Python3 and Pip3 (First run only needed)
 
-- painful 30 minute installation - Just google away to get it right # I'll probably try to change this to bash later
+    - painful 30 minute installation - Just google away to get it right # I'll probably try to change this to bash later
 
     a. OSX example: https://docs.python-guide.org/starting/install3/osx/
 
@@ -31,8 +31,11 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
     `pip3 install -r requirements.txt`
 
 3. Git: Create branch (Everytime - check folder with 'git branch')
+
     a. git checkout -b testing
+
     b. git push origin testing    
+
     c. (if push fails)
     
       - Setup Git SSH Key (https://help.github.com/articles/generating-an-ssh-key/)    
