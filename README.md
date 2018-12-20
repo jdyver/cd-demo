@@ -46,8 +46,11 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 ### 1. Edit - Manual Git build, Docker pull and Jenkins deploy
 0. Prerequisite 0.1
 1. Within Git - 
-1a. conf/cd-demo-app.json:
-    - edit line 21: "HAPROXY_0_VHOST": "\<Public Agent IP\>",
+- Github Repo: edit conf/cd-demo-app.json:
+    - Get the Public agent IP where the Marathon-LB is deployed
+    - Edit line 21: "HAPROXY_0_VHOST": "\<Public Agent IP\>",
+
+![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-Deployed-App-HAPROXY.png)
 
 2. Within Jenkins -
 2a. Credentials > System > Global > Add User (Input Description): Add Github and Dockerhub accounts
@@ -55,21 +58,41 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
     1. Source Code Mgmt > Git > 
         1. Repo URL: `https://github.com/jdyver/cd-demo` (Your Git URL)
         2. Credentials: `Github`
+![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-1.jpg)
+
     2. OPT - Auto Build (1 minute)
         1. Project Name > Configure > Build Triggers > Poll SCM
             1. Input: 
                  `* * * * *`
+
+![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-2.png)
+
     3. Build > [+ Build Step] > Docker Build and Publish > 
-        1. Repo Name: `jdyver/cd-demo`
+        1. Repo Name: `jdyver/cd-demo` (Your Docker repo username + '/cd-demo')
         2. Tag: `$GIT_COMMIT`
         3. Registry credentials: `Dockerhub`
+
+![Jenkins - Build](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-3.png)
+
     4. Post-build Actions > [+ Post-build action] > Marathon Deployment > [Advanced] >
         1. Marathon URL: `http://leader.mesos:8080`
         2. Definition File: `conf/cd-demo-app.json`
         3. Docker Image: `jdyver/cd-demo:$GIT_COMMIT`
 
-3. site/_posts/2016-02-25-welcome-to-cd-demo.markdown
-- edit site
+![Jenkins - Post-build](https://github.com/jdyver/cd-demo-jd/blob/master/img/OOPS)
+
+3. Github Repo: edit site/_posts/2017-12-25-welcome-to-cd-demo.markdown
+- edit some text
+
+4. Once the minute poll from Jenkins completes it will see the commit and (re)deploy the Jenkins_Deployed_App
+
+![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-4.png)
+
+5. Open a tab and go to the Marathon-LB's \<Master_IP\>
+
+- If it doesn't open either the jenkins_deployed_app isn't completely up or the port (HAPROXY) wasn't updated so go to MLB to pull what port it is running on
+
+![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/CD-Demo-Output.png)
 
 ### 2. Deploy 50 Jobs
 0. Prerequisites 0.1 and 0.2
@@ -100,11 +123,16 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 — <b>slash at the end of the URL!</b>
 
+![Python Dynamic-Agents Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/Dynamic-Agents-Running.png)
+
+4. Now in action, go back to the Jenkins UI
+
 ![Jenkins - 50 Jobs](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-50-Finale.png)
 
 What you see are 50 jobs that have been created through automation and are randomly timed to fail/succeed within 2 minutes.
 - Rerun for a more mixed view of jobs that have succeeded, failed/succeeded or just always failed.
 
+5. In the DC/OS UI, you can select the Jenkins Service and see the Jenkins executors scale to manage these 50 jobs.
 
 
 # --------------------------------------------------------------------
