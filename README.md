@@ -58,6 +58,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
     2a. Credentials > System > Global > Add User (Input Description): Add Github and Dockerhub accounts
     
     2b. Select New Job:
+
         1. Select Freestyle and give it a name
 
         2. Source Code Mgmt Section Git:
