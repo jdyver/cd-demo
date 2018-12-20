@@ -100,7 +100,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 — <b>slash at the end of the URL!</b>
 
-![Jenkins - 50 Jobs](https://github.com/jdyver/cd-demo-jd/img/Jenkins 50 - Finale.png)
+![Jenkins - 50 Jobs](https://github.com/jdyver/cd-demo-jd/img/Jenkins-50-Finale.png)
 
 What you see are 50 jobs that have been created through automation and are randomly timed to fail/succeed within 2 minutes.
 - Rerun for a more mixed view of jobs that have succeeded, failed/succeeded or just always failed.
