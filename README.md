@@ -84,7 +84,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 3. Github Repo: edit site/_posts/2017-12-25-welcome-to-cd-demo.markdown
     - edit some text
 
-`
+```
 jamess-mbp:cd-demo jd$ cat site/_posts/2017-12-25-welcome-to-cd-demo.markdown << EOF
 ---
 layout: post
@@ -94,7 +94,7 @@ categories: demo
 
 This is an example post that you can make using Markdown to demonstrate a website being statically generated and deployed!  ...and Merry Christmas!
 EOF
-`
+```
 
 4. Once the minute poll from Jenkins completes it will see the commit and (re)deploy the Jenkins_Deployed_App
 
