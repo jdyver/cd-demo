@@ -58,6 +58,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
     1. Source Code Mgmt > Git > 
         1. Repo URL: `https://github.com/jdyver/cd-demo` (Your Git URL)
         2. Credentials: `Github`
+
 ![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-1.jpg)
 
     2. OPT - Auto Build (1 minute)
