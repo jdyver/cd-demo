@@ -64,9 +64,8 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 ![Jenkins - Source Code](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-1.png)
 
 2c. OPT - Auto Build (1 minute)
-        1. Project Name > Configure > Build Triggers > Poll SCM
-            1. Input: 
-                 `* * * * *`
+    1. Project Name > Configure > Build Triggers > Poll SCM
+        1. Input: `* * * * *`
 
 ![Jenkins - Polling](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-2.png)
 
