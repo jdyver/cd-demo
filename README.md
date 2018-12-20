@@ -11,7 +11,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 2. Scaled Deployment
 - Show that this is a scalable Jenkins by executing 50 jobs
 
-### Step 1. Prerequisites
+### Step 0. Prerequisites
 - I just wish this wasn't the case
 #### Step 0.1 - Only needed for Manual Deployment (First run only)
 1. Clone cd-demo to your unit and create Git repo
@@ -55,27 +55,27 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 2. Within Jenkins:
 - Open the Jenkins UI from DC/OS
 
-    2a. Credentials > System > Global > Add User (Input Description): Add Github and Dockerhub accounts
+    a. Credentials > System > Global > Add User (Input Description): Add Github and Dockerhub accounts
     
-    2b. Select New Job:
+    b. Select New Job:
 
-        1. Select Freestyle and give it a name
+        - Select Freestyle and give it a name
 
-        2. Source Code Mgmt Section Git:
+        - Source Code Mgmt Section Git:
             - Repo URL: 'https://github.com/jdyver/cd-demo' (Your Git URL)
             - Credentials: 'Github'
 
 
 ![Jenkins - Source Code](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-1.png)
 
-    2c. OPT - Auto Build (1 minute)
+    c. OPT - Auto Build (1 minute)
         - Project Name > Configure > Build Triggers > Poll SCM
         - Input: '* * * * *'
 
 ![Jenkins - Polling](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-2.png)
 
 
-    3. Build > [+ Build Step] > Docker Build and Publish > 
+    d. Build > [+ Build Step] > Docker Build and Publish > 
         - Repo Name: 'jdyver/cd-demo' (Your Docker repo username + '/cd-demo')
         - Tag: '$GIT_COMMIT'
         - Registry credentials: 'Dockerhub'
@@ -83,10 +83,10 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 ![Jenkins - Build](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-3.png)
 
 
-    4. Post-build Actions > [+ Post-build action] > Marathon Deployment > [Advanced] >
-        1. Marathon URL: 'http://leader.mesos:8080'
-        2. Definition File: 'conf/cd-demo-app.json'
-        3. Docker Image: 'jdyver/cd-demo:$GIT_COMMIT'
+    e. Post-build Actions > [+ Post-build action] > Marathon Deployment > [Advanced] >
+        - Marathon URL: 'http://leader.mesos:8080'
+        - Definition File: 'conf/cd-demo-app.json'
+        - Docker Image: 'jdyver/cd-demo:$GIT_COMMIT'
 
 ![Jenkins - Post-build](https://github.com/jdyver/cd-demo-jd/blob/master/img/OOPS)
 
