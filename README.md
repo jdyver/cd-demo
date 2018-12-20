@@ -54,38 +54,37 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 2. Within Jenkins:
 - Open the Jenkins UI from DC/OS
-    a. Credentials > System > Global > Add User (Input Description): Add Github and Dockerhub accounts
-    b. Select New Job:
-        - Select Freestyle and give it a name
-        - Source Code Mgmt Section Git:
-            1. Repo URL: 'https://github.com/jdyver/cd-demo' (Your Git URL)
-            2. Credentials: 'Github'
+- Credentials > System > Global > Add User (Input Description): Add Github and Dockerhub accounts
+- Select New Job:
+    - Select Freestyle and give it a name
+    - Source Code Mgmt Section Git:
+        1. Repo URL: 'https://github.com/jdyver/cd-demo' (Your Git URL)
+        2. Credentials: 'Github'
 
 ![Jenkins - Source Code](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-1.png)
 
-    c. OPT - Auto Build (1 minute)
-        - Project Name > Configure > Build Triggers > Poll SCM
-        - Input: '* * * * *'
+- OPT - Auto Build (1 minute)
+    - Project Name > Configure > Build Triggers > Poll SCM
+    - Input: '* * * * *'
 
 ![Jenkins - Polling](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-2.png)
 
-    d. Build > [+ Build Step] > Docker Build and Publish > 
-        - Repo Name: 'jdyver/cd-demo' (Your Docker repo username + '/cd-demo')
-        - Tag: '$GIT_COMMIT'
-        - Registry credentials: 'Dockerhub'
+- Build > [+ Build Step] > Docker Build and Publish > 
+    - Repo Name: 'jdyver/cd-demo' (Your Docker repo username + '/cd-demo')
+    - Tag: '$GIT_COMMIT'
+    - Registry credentials: 'Dockerhub'
 
 ![Jenkins - Build](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-3.png)
 
-
-    e. Post-build Actions > [+ Post-build action] > Marathon Deployment > [Advanced] >
-        - Marathon URL: 'http://leader.mesos:8080'
-        - Definition File: 'conf/cd-demo-app.json'
-        - Docker Image: 'jdyver/cd-demo:$GIT_COMMIT'
+-  Post-build Actions > [+ Post-build action] > Marathon Deployment > [Advanced] >
+    - Marathon URL: 'http://leader.mesos:8080'
+    - Definition File: 'conf/cd-demo-app.json'
+    - Docker Image: 'jdyver/cd-demo:$GIT_COMMIT'
 
 ![Jenkins - Post-build](https://github.com/jdyver/cd-demo-jd/blob/master/img/OOPS)
 
 3. Github Repo: edit site/_posts/2017-12-25-welcome-to-cd-demo.markdown
-- edit some text
+    - edit some text
 
 4. Once the minute poll from Jenkins completes it will see the commit and (re)deploy the Jenkins_Deployed_App
 
