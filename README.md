@@ -57,9 +57,9 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 2a. Credentials > System > Global > Add User (Input Description): Add Github and Dockerhub accounts
 
-2b. New Job > Freestyle
+2b. New Job \> Freestyle
 
-    1. Source Code Mgmt \> Git \>
+    1. Source Code Mgmt > Git >
  
         - Repo URL: `https://github.com/jdyver/cd-demo` (Your Git URL)
 
