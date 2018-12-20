@@ -1,21 +1,19 @@
 # cd-demo-jd
 A scale and continuous delivery demo using Jenkins on DC/OS.
-- Props to the original creator, but Mesosphere Git and Docker credentials are problematic for the original instructions
-
-## Add Pictures
+- Props to the original creator, but now this is updated for the latest DC/OS (1.12), Mesosphere Github repo access and Docker credentials
 
 ## Current Possibilities
 1. Manual Deployment
 - Git build, Docker pull and automatic Jenkins deploy
 - Show that this is a functional Jenkins
 2. Scaled Deployment
-- Show that this is a scalable Jenkins by executing 50 jobs
+- Show that this is a scalable Jenkins solution by executing 50 jobs
 
 ### Step 0. Prerequisites
 - I just wish this wasn't the case
 #### Step 0.1 - Only needed for Manual Deployment (First run only)
-1. Clone cd-demo to your unit and create Git repo
-- git clone https://github.com/jdyver/cd-demo.git
+1. Clone cd-demo to your unit and create/sync it to your Github repo
+- Command: `git clone https://github.com/jdyver/cd-demo.git`
 
 #### Step 0.2 - Additional Steps Needed for Scaled Deployment
 1. Setup Python3 and Pip3 (First run only needed)
@@ -81,10 +79,22 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
     - Definition File: `conf/cd-demo-app.json`
     - Docker Image: `jdyver/cd-demo:$GIT_COMMIT`
 
-![Jenkins - Post-build](https://github.com/jdyver/cd-demo-jd/blob/master/img/OOPS)
+![Jenkins - Post-build](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-5.png)
 
 3. Github Repo: edit site/_posts/2017-12-25-welcome-to-cd-demo.markdown
     - edit some text
+
+`
+jamess-mbp:cd-demo jd$ cat site/_posts/2017-12-25-welcome-to-cd-demo.markdown << EOF
+---
+layout: post
+title:  "Welcome to James' Continuous Delivery Demonstration!"
+categories: demo
+---
+
+This is an example post that you can make using Markdown to demonstrate a website being statically generated and deployed!  ...and Merry Christmas!
+EOF
+`
 
 4. Once the minute poll from Jenkins completes it will see the commit and (re)deploy the Jenkins_Deployed_App
 
@@ -136,6 +146,11 @@ What you see are 50 jobs that have been created through automation and are rando
 
 5. In the DC/OS UI, you can select the Jenkins Service and see the Jenkins executors scale to manage these 50 jobs.
 
+
+
+### TBD (In order of priority)
+- demo.py: Change / remove DC/OS CLI profile check
+- demo.py: Change to bash (basically a rewrite)
 
 # --------------------------------------------------------------------
 
