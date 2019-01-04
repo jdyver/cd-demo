@@ -9,7 +9,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 2. Scaled Deployment
 - Show that this is a scalable Jenkins solution by executing 50 jobs
 
-### Step 0. Prerequisites
+### Exercise 0. Prerequisites
 - I just wish this wasn't the case
 #### Step 0.1 - Only needed for Manual Deployment (First run only)
 1. Clone cd-demo to your unit and create/sync it to your Github repo
@@ -23,13 +23,25 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
     a. OSX example: https://docs.python-guide.org/starting/install3/osx/
 
     b. Centos example: https://www.rosehosting.com/blog/how-to-install-python-3-6-4-on-centos-7/
+
+    c. Pip3 Setup (CentOS): sudo ln pip3.6 pip3
     
 2. Pip3: Install requirements
 
     `pip3 install -r requirements.txt`
+    
+    a. CentOS (not root): Add sudo
 
-3. Git: Create branch (Everytime - check folder with 'git branch')
+3. Github Create repo/branch (Everytime - check folder with 'git branch')
 
+    a. Manually create new repo within your Github account
+
+    b. 
+
+!    cd cd-demo
+!    CREATE NEW GITHUB REPO - FORK PERHAPS
+
+(from copied repository)
     a. git checkout -b testing
 
     b. git push origin testing    
@@ -39,20 +51,43 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
       - Setup Git SSH Key (https://help.github.com/articles/generating-an-ssh-key/)    
       - (ssh -T git@github.com success, but push still fails)  
             `git remote set-url origin git@github.com:jdyver/cd-demo.git` (your repo)
-            
 
-### 1. Edit - Manual Git build, Docker pull and Jenkins deploy
+4. Dockerhub:             
+
+### Exercise 1. Edit - Manual Git build, Docker pull and Jenkins deploy
 0. Prerequisite 0.1
-1. Within Github:
-    - Github cd-demo Repo: edit conf/cd-demo-app.json:
-        - Get the Public agent IP where the Marathon-LB is deployed
-        - Edit line 21: "HAPROXY_0_VHOST": "\<Public Agent IP\>",
+
+1. Setup Application
+    
+    a. Single cluster configured for CLI
+    - If doing the 50 job (Section 2), go ahead and clear the DCOS profiles
+
+    `dcos cluster remove --all`
+
+    - Connect to the cluster
+    `dcos cluster add https://<your url>`
+
+    b. Install Marathon-LB
+    - Get MLB IP 
+
+    c. Install Jenkins
+
+1. Within the Github repo:
+    - Edit file: conf/cd-demo-app.json - line 21
+        - "HAPROXY_0_VHOST": "\<Public Agent IP\>",
 
 ![Edit HAPROXY](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-Deployed-App-HAPROXY.png)
 
+
+
 2. Within Jenkins:
 - Open the Jenkins UI from DC/OS
-- Credentials > System > Global > Add User (Input Description): Add Github and Dockerhub accounts
+- Credentials > System > Global Credentials > Add Credentials (Input Description): Add Github and Dockerhub accounts
+
+! Decscription at end
+
+![Jenkins - Credentials](URL)
+
 - Select New Job:
     - Select Freestyle and give it a name
     - Source Code Mgmt Section Git:
@@ -67,19 +102,21 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 ![Jenkins - Polling](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-2.png)
 
-- Build > [+ Build Step] > Docker Build and Publish > 
+- Build > [Add Build Step] > Docker Build and Publish > 
     - Repo Name: `jdyver/cd-demo` (Your Docker repo username + '/cd-demo')
     - Tag: `$GIT_COMMIT`
     - Registry credentials: `Dockerhub`
 
 ![Jenkins - Build](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-3.png)
 
--  Post-build Actions > [+ Post-build action] > Marathon Deployment > [Advanced] >
+-  Post-build Actions > [Add post-build action] > Marathon Deployment > [Advanced] >
     - Marathon URL: `http://leader.mesos:8080`
     - Definition File: `conf/cd-demo-app.json`
     - Docker Image: `jdyver/cd-demo:$GIT_COMMIT`
 
 ![Jenkins - Post-build](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-5.png)
+
+- Hit save
 
 3. Github Repo: edit site/_posts/2017-12-25-welcome-to-cd-demo.markdown
     - edit some text
@@ -106,7 +143,7 @@ EOF
 
 ![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/CD-Demo-Output.png)
 
-### 2. Deploy 50 Jobs
+### Exercise 2. Deploy 50 Jobs
 0. Prerequisites 0.1 and 0.2
 
 - 0.2 Has to be done/checked every time
@@ -114,16 +151,18 @@ EOF
 `git branch`
 
 1. Single cluster configured for CLI
+
 `dcos cluster remove --all`
+
 `dcos cluster add http://<your url>`
 
 2. Install Jenkins
 
-2a. Through CLI or UI
+     a. Through CLI or UI
 
 `cd-demo jd$ dcos package install --yes jenkins`
 
-2b. OPTION (Do not do this if you do not do 2a) 
+     b. OPTION (Do not do this if you do not do 2a) 
 
 `cd-demo jd$ python3 bin/demo.py install --latest http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
 
