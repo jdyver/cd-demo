@@ -12,7 +12,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 2. Scaled Deployment
 - Show that this is a scalable Jenkins solution by executing 50 jobs
 
-![Show Output](URL)
+![DCOS - Jenkins Service Jobs](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkins2.png)
 
 ### Exercise 0. Prerequisites
 - I just wish this wasn't so bad
@@ -29,11 +29,11 @@ Item 1. Setup Python3 and Pip3 (First run only needed)
 
     b. Centos example: https://www.rosehosting.com/blog/how-to-install-python-3-6-4-on-centos-7/
 
-    c. Pip3 Setup (CentOS): sudo ln pip3.6 pip3
+! DELETE_ME c. Pip3 Setup (CentOS): sudo ln pip3.6 pip3
     
 Item 2. Pip3: Install requirements
 
-    `pip3 install -r requirements.txt`
+    `pip3.6 install -r requirements.txt`
     
     a. CentOS (not logged in as root): Add sudo
 
@@ -193,7 +193,7 @@ EOF
 
 — <b>slash at the end of the URL!</b>
 
-![Python Dynamic-Agents Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/Dynamic-Agents-Running.png)
+![Python Dynamic-Agents Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/cd-demo_dynamic-agents.png)
 
 4. Now in action, go back to the Jenkins UI
 
