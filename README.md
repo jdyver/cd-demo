@@ -97,11 +97,9 @@ Item 3. Github Create repo/branch
 
 2. Within Jenkins:
 - Open the Jenkins UI from DC/OS
-- Credentials > System > Global Credentials > Add Credentials (Input Description): Add Github and Dockerhub accounts
+- Credentials > System > Global Credentials > Add Credentials: Add Dockerhub account (Input Description)
 
-! Decscription at end
-
-![Jenkins - Credentials](URL)
+![Jenkins - Credentials](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-Credentials.png)
 
 - Select New Job:
     - Select Freestyle and give it a name
@@ -195,16 +193,27 @@ EOF
 
 ![Python Dynamic-Agents Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/cd-demo_dynamic-agents.png)
 
-4. Now in action, go back to the Jenkins UI
+##### Exercise 2 Demo
+4. Go to the Jenkins UI
 
 ![Jenkins - 50 Jobs](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-50-Finale.png)
 
 What you see are 50 jobs that have been created through automation and are randomly timed to fail/succeed within 2 minutes.
 - Rerun for a more mixed view of jobs that have succeeded, failed/succeeded or just always failed.
 
-5. In the DC/OS UI, you can select the Jenkins Service and see the Jenkins executors scale to manage these 50 jobs.
+5. In the DC/OS UI, you can select the Jenkins Service and see the Jenkins executors dynamically scale out and then back in to manage these 50 jobs based on the available resources of the cluster.  In the example outputs below, there are limited resources or unlimited resources and shown by Jenkins deploying more executors automatically within DCOS based on the demand.
 
+- Below shows Jenkins running on a single node of resources so automatically deploying 4 executors within DCOS
 
+![Jenkins with Single Node Resources](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkins1.png)
+
+- Below shows Jenkins running on more resources so automatically deploying 8 executors within DCOS
+
+![Jenkins with Multiple Node Resources](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkins2.png)
+
+- Once all of the jobs complete; Jenkins kills the executors and DCOS clears the resources for more / other jobs
+
+![Jenkins Killed Executors](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceKilledJenkins3.png)
 
 ### TBD (In order of priority)
 - demo.py: Change / remove DC/OS CLI profile check
