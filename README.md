@@ -105,7 +105,6 @@ Item 3. Github Create repo/branch
     - Select Freestyle and give it a name
     - Source Code Mgmt Section Git:
         1. Repo URL: `https://github.com/jdyver/cd-demo` (Your Git URL)
-        2. Credentials: `Github`
 
 ![Jenkins - Source Code](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-1.png)
 
