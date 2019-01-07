@@ -9,7 +9,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 ![DCOS Deployed Jenkins to CICD](https://github.com/jdyver/cd-demo-jd/blob/master/img/CD-Intro.png)
 
-### Exercise 2. Scaled Jenkins Deployment
+### Exercise 2. Scaled Jenkins Deployment - Deploy 50 Jobs
 - Show that this is a scalable Jenkins solution by executing 50 jobs with dynamically created task executors based on the available resources from DCOS.
 
 ![DCOS - Jenkins Service Jobs](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkinsOverview.png)
@@ -65,8 +65,10 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
     - Ensure that you have a dockerhub account and you know the username and password
 
 
-## Exercise 1. Edit - Manual Setup of Jenkins to Automate  Git build, Docker pull and Jenkins deploy
-### Step 0. Prerequisite 0.1
+## Exercise 1. Manual Setup of Jenkins Configuration for an Automated CI/CD Workflow
+- Manual Setup of Jenkins to Automate  Git build, Docker pull and Jenkins deploy
+
+### Step 0. Follow Prerequisite Section 1
 
 ### Step 1. Prepare DCOS
     
@@ -160,7 +162,7 @@ EOF
 
 ![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/CD-Demo-Output.png)
 
-## Exercise 2. Deploy 50 Jobs
+## Exercise 2. Scaled Jenkins Deployment - Deploy 50 Jobs
 ### Step 0. Prerequisites 0.1 and 0.2
 
  - 0.2 Has to be done/checked every time
