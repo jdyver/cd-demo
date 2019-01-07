@@ -3,13 +3,13 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 - Now updated to work with the latest DC/OS (1.12), Mesosphere Github repo access and Docker credentials
 
 ## What Are We Showing
-1. Manual Jenkins Configuration of an Automated CI/CD Workflow 
+### Exercise 1. Manual Setup of Jenkins Configuration of an Automated CI/CD Workflow 
 - Git push, then automated Jenkins Git build,  pull to Dockerhub and deployed app into DCOS.
 - Shows the DCOS open source Jenkins is functional Jenkins and that DCOS can manage the automated resource handling for CICD.
 
 ![DCOS Deployed Jenkins to CICD](https://github.com/jdyver/cd-demo-jd/blob/master/img/CD-Intro.png)
 
-2. Scaled Deployment
+### Exercise 2. Scaled Deployment
 - Show that this is a scalable Jenkins solution by executing 50 jobs with dynamically created task executors based on the available resources from DCOS.
 
 ![DCOS - Jenkins Service Jobs](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkinsOverview.png)
@@ -62,11 +62,10 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
             `git remote set-url origin git@github.com:jdyver/cd-demo.git` (your repo)
 
 ##### Item 4. Dockerhub:             
-
     - Ensure that you have a dockerhub account and you know the username and password
 
 
-### Exercise 1. Edit - Manual Git build, Docker pull and Jenkins deploy
+### Exercise 1. Edit - Manual Setup of Jenkins to Automate  Git build, Docker pull and Jenkins deploy
 #### Step 0. Prerequisite 0.1
 
 #### Step 1. Prepare DCOS
@@ -145,7 +144,12 @@ This is an example post that you can make using Markdown to demonstrate a websit
 EOF
 ```
 
-#### Step 5. Once the minute poll from Jenkins completes it will see the commit and (re)deploy the Jenkins_Deployed_App
+#### Step 5. Jenkins deploys the Jenkins_Deployed_App
+- Once the minute poll from Jenkins completes... (Can view from 'Console Output' within the cd-demo project)
+    - Jenkins checks Github if there are any commits.
+    - Jenkins builds the container image in the DCOS sandbox and tags as latest
+    - Jenkins pushes container image to Dockerhub
+    - Jenkins tells Marathon (DCOS) to update/deploy the 'jenkins_deployed_app'
 
 ![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-4.png)
 
