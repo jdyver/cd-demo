@@ -2,15 +2,15 @@
 A scale and continuous delivery demo using Jenkins on DC/OS.
 - Now updated to work with the latest DC/OS (1.12), Mesosphere Github repo access and Docker credentials
 
-## Current Possibilities
+## What Are We Showing
 1. Manual Jenkins Configuration of an Automated CI/CD Workflow 
-- Git build, Docker pull and automatic Jenkins deploy
-- Show that this is a functional Jenkins
+- Git build, then automatic Jenkins pull to Dockerhub and deploy app into DCOS.
+- Shows the DCOS open source Jenkins is functional Jenkins and that DCOS can manage the automated resource handling for CICD.
 
 ![DCOS Deployed Jenkins to CICD](https://github.com/jdyver/cd-demo-jd/blob/master/img/CD-Intro.png)
 
 2. Scaled Deployment
-- Show that this is a scalable Jenkins solution by executing 50 jobs with dynamic task executors based on the available resources.
+- Show that this is a scalable Jenkins solution by executing 50 jobs with dynamically created task executors based on the available resources from DCOS.
 
 ![DCOS - Jenkins Service Jobs](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkins2.png)
 
@@ -87,11 +87,11 @@ Item 3. Github Create repo/branch
 
     c. Install Jenkins
 
-1. Within the Github repo:
+1. Within your cd-demo Github repo:
     - Edit file: conf/cd-demo-app.json - line 21
         - "HAPROXY_0_VHOST": "\<Public Agent IP\>",
 
-![Edit HAPROXY](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-Deployed-App-HAPROXY.png)
+![Edit HAPROXY](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-Deployed-App-HAPROXY2.png)
 
 
 
@@ -104,11 +104,11 @@ Item 3. Github Create repo/branch
 - Select New Job:
     - Select Freestyle and give it a name
     - Source Code Mgmt Section Git:
-        1. Repo URL: `https://github.com/jdyver/cd-demo` (Your Git URL)
+        1. Repo URL: `https://github.com/jdyver/cd-demo` (Your Github URL for the cd-demo repo)
 
 ![Jenkins - Source Code](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-1.png)
 
-- Auto Build (1 minute)
+- Setup Auto Build (polls every 1 minute for build changes)
     - Project Name > Configure > Build Triggers > Poll SCM
     - Input: `* * * * *`
 
