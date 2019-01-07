@@ -4,7 +4,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 ## What Are We Showing
 1. Manual Jenkins Configuration of an Automated CI/CD Workflow 
-- Git build, then automatic Jenkins pull to Dockerhub and deploy app into DCOS.
+- Git push, then automated Jenkins Git build,  pull to Dockerhub and deployed app into DCOS.
 - Shows the DCOS open source Jenkins is functional Jenkins and that DCOS can manage the automated resource handling for CICD.
 
 ![DCOS Deployed Jenkins to CICD](https://github.com/jdyver/cd-demo-jd/blob/master/img/CD-Intro.png)
@@ -18,7 +18,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 - I just wish this wasn't so bad
 #### Step 0.1 - Only needed for Manual Deployment (First run only)
 1. Clone cd-demo to your unit and create/sync it to your Github repo
-- Command: `git clone https://github.com/jdyver/cd-demo.git`
+- Command: `git clone https://github.com/jdyver/cd-demo-jd.git`
 
 #### Step 0.2 - Additional Steps Needed for Scaled Deployment
 Item 1. Setup Python3 and Pip3 (First run only needed)
@@ -29,8 +29,6 @@ Item 1. Setup Python3 and Pip3 (First run only needed)
 
     b. Centos example: https://www.rosehosting.com/blog/how-to-install-python-3-6-4-on-centos-7/
 
-! DELETE_ME c. Pip3 Setup (CentOS): sudo ln pip3.6 pip3
-    
 Item 2. Pip3: Install requirements
 
     `pip3.6 install -r requirements.txt`
@@ -70,16 +68,16 @@ Item 3. Github Create repo/branch
 
 
 ### Exercise 1. Edit - Manual Git build, Docker pull and Jenkins deploy
-0. Prerequisite 0.1
+Step 0. Prerequisite 0.1
 
-1. Setup Application
+Step 1. Setup Application
     
     a. Single cluster configured for CLI
     - If doing the 50 job (Section 2), go ahead and clear the DCOS profiles
 
     `dcos cluster remove --all`
-
     - Connect to the cluster
+    
     `dcos cluster add https://<your url>`
 
     b. Install Marathon-LB
@@ -87,7 +85,7 @@ Item 3. Github Create repo/branch
 
     c. Install Jenkins
 
-1. Within your cd-demo Github repo:
+Step 2. Within your cd-demo Github repo:
     - Edit file: conf/cd-demo-app.json - line 21
         - "HAPROXY_0_VHOST": "\<Public Agent IP\>",
 
