@@ -2,10 +2,10 @@
 A scale and continuous delivery demo using Jenkins on DC/OS.
 - Now updated to work with the latest DC/OS (1.12), Mesosphere Github repo access and Docker credentials
 
-## What Are We Showing
+## What We Are Showing
 ### Exercise 1. Manual Setup of Jenkins Configuration for an Automated CI/CD Workflow 
 - Git push, then automated Jenkins Git build,  pull to Dockerhub and deployed app into DCOS.
-- Shows the DCOS open source Jenkins is functional and that DCOS can manage the automated resource handling for Continuous Integration and Continuous Deployment.
+- Shows the DCOS open source Jenkins is functional and that DCOS can manage the automated resource handling in literally showing Continuous Integration and Continuous Deployment.
 
 ![DCOS Deployed Jenkins to CICD](https://github.com/jdyver/cd-demo-jd/blob/master/img/CD-Intro.png)
 
@@ -88,8 +88,8 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
  c. Install Jenkins
 
 ### Step 2. Within your cd-demo Github repo:
-    - Edit file: conf/cd-demo-app.json - line 21
-        - "HAPROXY_0_VHOST": "\<Public Agent IP\>",
+ - Edit file: conf/cd-demo-app.json - line 21
+     - "HAPROXY_0_VHOST": "\<Public Agent IP\>",
 
 ![Edit HAPROXY](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-Deployed-App-HAPROXY2.png)
 
