@@ -163,7 +163,7 @@ EOF
 
 ![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-4.png)
 
-### Step 6. Open a tab and go to the Marathon-LB's \<Master_IP\>
+### Step 6. Open a tab and go to the Marathon-LB's \<Public_IP\>
 - Here you can see that the jenkins_deployed_app is deployed
     - Marathon-LB automatically picked up the service port to serve the site at port 80
         - Note: If it doesn't open either the jenkins_deployed_app isn't completely up or the port (HAPROXY) wasn't updated so go to MLB to pull what port it is running on (...or go back and follow step 2, then commit).
@@ -178,7 +178,7 @@ EOF
     `git branch`
 
 ### Step 1. Single cluster configured for CLI
- - Clear out the old/other cluster profiles (Requirement to be removed)
+ - Clear out the old/other cluster profiles (This requirement to be removed)
 
     `dcos cluster remove --all`
 
@@ -199,7 +199,7 @@ EOF
 
  — <b>slash at the end of the URL!</b>
 
-### Step 3. Run script
+### Step 3. Run the cd-demo 50 job script
  — <b>slash at the end of the URL!</b>
 
     `cd-demo jd$ python3 bin/demo.py dynamic-agents http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
