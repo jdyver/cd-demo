@@ -17,11 +17,11 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 ### Exercise 0. Prerequisites
 - I just wish this wasn't so bad
 #### Step 0.1 - Only needed for Manual Deployment (First run only)
-1. Clone cd-demo to your unit and create/sync it to your Github repo
+##### Item 1. Clone cd-demo to your unit and create/sync it to your Github repo
 - Command: `git clone https://github.com/jdyver/cd-demo-jd.git`
 
 #### Step 0.2 - Additional Steps Needed for Scaled Deployment
-Item 1. Setup Python3 and Pip3 (First run only needed)
+##### Item 1. Setup Python3 and Pip3 (First run only needed)
 
     - painful 30 minute installation - Just google away to get it right # I'll probably try to change this to bash later
 
@@ -29,13 +29,13 @@ Item 1. Setup Python3 and Pip3 (First run only needed)
 
     b. Centos example: https://www.rosehosting.com/blog/how-to-install-python-3-6-4-on-centos-7/
 
-Item 2. Pip3: Install requirements
+##### Item 2. Pip3: Install requirements
 
     `pip3.6 install -r requirements.txt`
     
     a. CentOS (not logged in as root): Add sudo
 
-Item 3. Github Create repo/branch 
+##### Item 3. Github Create repo/branch 
 - Everytime - check cd-demo folder with 'git remote -v' or 'git branch'
 
     a. Manually create new repo within your Github account
@@ -62,7 +62,7 @@ Item 3. Github Create repo/branch
         - (ssh -T git@github.com success, but push still fails)  
             `git remote set-url origin git@github.com:jdyver/cd-demo.git` (your repo)
 
-4. Dockerhub:             
+##### Item 4. Dockerhub:             
 
     - Ensure that you have a dockerhub account and you know the username and password
 
@@ -70,7 +70,7 @@ Item 3. Github Create repo/branch
 ### Exercise 1. Edit - Manual Git build, Docker pull and Jenkins deploy
 #### Step 0. Prerequisite 0.1
 
-#### Step 1. Setup Application
+#### Step 1. Prepare DCOS
     
  a. Single cluster configured for CLI
  
@@ -94,7 +94,7 @@ Item 3. Github Create repo/branch
 
 ![Edit HAPROXY](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-Deployed-App-HAPROXY2.png)
 
-#### Step 3. Within Jenkins:
+#### Step 3. Prepare Jenkins:
 - Open the Jenkins UI from DC/OS
 - Credentials > System > Global Credentials > Add Credentials: Add Dockerhub account (Input Description)
 
