@@ -72,7 +72,7 @@ Item 3. Github Create repo/branch
 
 #### 1. Setup Application
     
-    a. Single cluster configured for CLI
+a. Single cluster configured for CLI
  
     - If doing the 50 job (Section 2), go ahead and clear the DCOS profiles
 
@@ -88,7 +88,7 @@ Item 3. Github Create repo/branch
 
     c. Install Jenkins
 
-Step 2. Within your cd-demo Github repo:
+#### 2. Within your cd-demo Github repo:
     - Edit file: conf/cd-demo-app.json - line 21
         - "HAPROXY_0_VHOST": "\<Public Agent IP\>",
 
