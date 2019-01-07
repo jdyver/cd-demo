@@ -73,6 +73,7 @@ Step 0. Prerequisite 0.1
 Step 1. Setup Application
     
     a. Single cluster configured for CLI
+ 
     - If doing the 50 job (Section 2), go ahead and clear the DCOS profiles
 
     `dcos cluster remove --all`
@@ -82,6 +83,7 @@ Step 1. Setup Application
     `dcos cluster add https://<your url>`
 
     b. Install Marathon-LB
+ 
     - Get MLB IP 
 
     c. Install Jenkins
