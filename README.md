@@ -156,7 +156,7 @@ EOF
 #### Step 6. Open a tab and go to the Marathon-LB's \<Master_IP\>
 - Here you can see that the jenkins_deployed_app is deployed
     - Marathon-LB automatically picked up the service port to serve the site at port 80
-        - Note: If it doesn't open either the jenkins_deployed_app isn't completely up or the port (HAPROXY) wasn't updated so go to MLB to pull what port it is running on (...or go back and change the HAPROXY IP, then commit).
+        - Note: If it doesn't open either the jenkins_deployed_app isn't completely up or the port (HAPROXY) wasn't updated so go to MLB to pull what port it is running on (...or go back and follow step 2, then commit).
 
 ![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/CD-Demo-Output.png)
 
@@ -169,9 +169,9 @@ EOF
 
 #### Step 1. Single cluster configured for CLI
 
-     `dcos cluster remove --all`
+    `dcos cluster remove --all`
 
-     `dcos cluster add http://<your url>`
+    `dcos cluster add http://<your url>`
 
 #### Step 2. Install Jenkins
 
