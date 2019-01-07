@@ -226,4 +226,4 @@ EOF
 ## TBD (In order of priority) ------------------------------------
 - demo.py: Change / remove DC/OS CLI profile check
 - demo.py: Change to bash (basically a rewrite)
-## ------------------------------------------------------------
+## -------------------------------------------------------------
