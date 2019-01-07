@@ -99,16 +99,17 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 ![Jenkins - Credentials](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-Credentials.png)
 
-- Select New Job:
-    - Select Freestyle project, give it a name and select OK at the bottom
-    - Setup Source Code Mgmt Section 
-    - Git:
-        - Repo URL: `https://github.com/jdyver/cd-demo` (Your Github URL for the cd-demo repo)
+- Setup New Job:
+    - Select New Item (New Job), Freestyle project, give it a name and select OK at the bottom
+
+- Setup Github 
+    - Select Source Code Management > Git >
+    - Repo URL: `https://github.com/jdyver/cd-demo` (Your Github URL for the cd-demo repo)
 
 ![Jenkins - Source Code](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-1.png)
 
 - Setup Auto Build (polls every 1 minute for build changes)
-    - Project Name > Configure > Build Triggers > Poll SCM
+    - Project Name > Configure > Build Triggers > Poll SCM >
     - Input: `* * * * *`
 
 ![Jenkins - Polling](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-2.png)
@@ -134,7 +135,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 ### Exercise 1 Demo is now setup; To show the demo....
 
 ### Step 4. Github Repo: edit site/_posts/2017-12-25-welcome-to-cd-demo.markdown
- - edit some text
+ - edit some descriptive text
 
 ```
 jamess-mbp:cd-demo jd$ cat site/_posts/2017-12-25-welcome-to-cd-demo.markdown << EOF
@@ -149,11 +150,16 @@ EOF
 ```
 
 ### Step 5. Jenkins deploys the Jenkins_Deployed_App
-- Once the minute poll from Jenkins completes... (Can view from 'Console Output' within the cd-demo project)
+- At a high level, once the minute poll from Jenkins completes... (Can view from 'Console Output' within the cd-demo project)
     - Jenkins checks Github if there are any commits.
     - Jenkins builds the container image in the DCOS sandbox and tags as latest.
     - Jenkins pushes container image to Dockerhub.
-    - Jenkins tells Marathon (DCOS) to update/deploy the 'jenkins_deployed_app'.
+    - Jenkins tells Marathon (DCOS) to update/deploy the 'jenkins_deployed_app' container from Dockerhub to a DCOS node.
+
+- In the background, DCOS:
+    - Gives resources to a Jenkins executor to run the job.
+    - Gives resources to the newly deployed jenkins-deployed-app.
+    - Marathon-LB automatically discovers the app and manages web requests via port 80.
 
 ![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-4.png)
 
