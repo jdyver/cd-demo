@@ -57,7 +57,6 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
       b. git push origin testing    
 
       c. (if push fails)
-    
        - Setup Git SSH Key (https://help.github.com/articles/generating-an-ssh-key/)    
        - (ssh -T git@github.com success, but push still fails)  
             `git remote set-url origin git@github.com:jdyver/cd-demo.git` (your repo)
