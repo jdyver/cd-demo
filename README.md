@@ -7,7 +7,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 - Git build, Docker pull and automatic Jenkins deploy
 - Show that this is a functional Jenkins
 
-![Show Output](URL)
+![DCOS Deployed Jenkins to CICD](https://github.com/jdyver/cd-demo-jd/blob/master/img/CD-Intro.png)
 
 2. Scaled Deployment
 - Show that this is a scalable Jenkins solution by executing 50 jobs with dynamic task executors based on the available resources.
