@@ -15,7 +15,6 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 ![DCOS - Jenkins Service Jobs](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkinsOverview.png)
 
 ## Exercise 0. Prerequisites
-- I just wish this wasn't so bad
 ### Step 0.1 - Exercise 1 Prerequisites (First run only)
 #### Item 1. Clone cd-demo to your unit and create/sync it to your Github repo
 - Command: `git clone https://github.com/jdyver/cd-demo-jd.git`
@@ -200,7 +199,7 @@ EOF
 
 ![Python Dynamic-Agents Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/cd-demo_dynamic-agents.png)
 
-### Exercise 2 Demo
+### Exercise 2 Demo is now setup...
 
 ### Step 4. Go to the Jenkins UI
 
