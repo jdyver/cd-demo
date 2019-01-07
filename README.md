@@ -23,43 +23,43 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 #### Step 0.2 - Additional Steps Needed for Scaled Deployment
 ##### Item 1. Setup Python3 and Pip3 (First run only needed)
 
-    - painful 30 minute installation - Just google away to get it right # I'll probably try to change this to bash later
+ - painful 30 minute installation - Just google away to get it right # I'll probably try to change this to bash later
 
-    a. OSX example: https://docs.python-guide.org/starting/install3/osx/
+ a. OSX example: https://docs.python-guide.org/starting/install3/osx/
 
-    b. Centos example: https://www.rosehosting.com/blog/how-to-install-python-3-6-4-on-centos-7/
+ b. Centos example: https://www.rosehosting.com/blog/how-to-install-python-3-6-4-on-centos-7/
 
 ##### Item 2. Pip3: Install requirements
 
     `pip3.6 install -r requirements.txt`
     
-    a. CentOS (not logged in as root): Add sudo
+ a. CentOS (not logged in as root): Add sudo
 
 ##### Item 3. Github Create repo/branch 
 - Everytime - check cd-demo folder with 'git remote -v' or 'git branch'
 
-    a. Manually create new repo within your Github account
+ a. Manually create new repo within your Github account
 
-    b. git clone https://github.com/jdyver/cd-demo-jd.git
+ b. git clone https://github.com/jdyver/cd-demo-jd.git
 
-    c. cd cd-demo
+ c. cd cd-demo
 
-    d. git remote set-url upstream https://github.com/<Your Username>/<New Repo Name>
+ d. git remote set-url upstream https://github.com/<Your Username>/<New Repo Name>
 
-    e. git push -u upstream master
+ e. git push -u upstream master
 
-    f. Skip to Step 4
+ f. Skip to Step 4
 
-    - If using from locally forked repository
+ - If using from locally forked repository
 
-        a. git checkout -b testing
+      a. git checkout -b testing
 
-        b. git push origin testing    
+      b. git push origin testing    
 
-        c. (if push fails)
+      c. (if push fails)
     
-        - Setup Git SSH Key (https://help.github.com/articles/generating-an-ssh-key/)    
-        - (ssh -T git@github.com success, but push still fails)  
+       - Setup Git SSH Key (https://help.github.com/articles/generating-an-ssh-key/)    
+       - (ssh -T git@github.com success, but push still fails)  
             `git remote set-url origin git@github.com:jdyver/cd-demo.git` (your repo)
 
 ##### Item 4. Dockerhub:             
