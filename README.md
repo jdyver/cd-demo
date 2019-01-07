@@ -68,9 +68,9 @@ Item 3. Github Create repo/branch
 
 
 ### Exercise 1. Edit - Manual Git build, Docker pull and Jenkins deploy
-#### 0. Prerequisite 0.1
+#### Step 0. Prerequisite 0.1
 
-#### 1. Setup Application
+#### Step 1. Setup Application
     
  a. Single cluster configured for CLI
  
@@ -88,15 +88,13 @@ Item 3. Github Create repo/branch
 
  c. Install Jenkins
 
-#### 2. Within your cd-demo Github repo:
+#### Step 2. Within your cd-demo Github repo:
     - Edit file: conf/cd-demo-app.json - line 21
         - "HAPROXY_0_VHOST": "\<Public Agent IP\>",
 
 ![Edit HAPROXY](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-Deployed-App-HAPROXY2.png)
 
-
-
-2. Within Jenkins:
+#### Step 3. Within Jenkins:
 - Open the Jenkins UI from DC/OS
 - Credentials > System > Global Credentials > Add Credentials: Add Dockerhub account (Input Description)
 
@@ -131,8 +129,10 @@ Item 3. Github Create repo/branch
 
 - Hit save
 
-3. Github Repo: edit site/_posts/2017-12-25-welcome-to-cd-demo.markdown
-    - edit some text
+#### Demo is now setup; To show the demo....
+
+#### Step 4. Github Repo: edit site/_posts/2017-12-25-welcome-to-cd-demo.markdown
+ - edit some text
 
 ```
 jamess-mbp:cd-demo jd$ cat site/_posts/2017-12-25-welcome-to-cd-demo.markdown << EOF
@@ -146,11 +146,11 @@ This is an example post that you can make using Markdown to demonstrate a websit
 EOF
 ```
 
-4. Once the minute poll from Jenkins completes it will see the commit and (re)deploy the Jenkins_Deployed_App
+#### Step 5. Once the minute poll from Jenkins completes it will see the commit and (re)deploy the Jenkins_Deployed_App
 
 ![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-4.png)
 
-5. Open a tab and go to the Marathon-LB's \<Master_IP\>
+Step 6. Open a tab and go to the Marathon-LB's \<Master_IP\>
 
 - If it doesn't open either the jenkins_deployed_app isn't completely up or the port (HAPROXY) wasn't updated so go to MLB to pull what port it is running on
 
