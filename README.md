@@ -68,9 +68,9 @@ Item 3. Github Create repo/branch
 
 
 ### Exercise 1. Edit - Manual Git build, Docker pull and Jenkins deploy
-Step 0. Prerequisite 0.1
+#### 0. Prerequisite 0.1
 
-Step 1. Setup Application
+#### 1. Setup Application
     
     a. Single cluster configured for CLI
  
