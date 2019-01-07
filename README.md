@@ -1,16 +1,16 @@
 # cd-demo-jd
 A scale and continuous delivery demo using Jenkins on DC/OS.
-- Props to the original creator, but now this is updated for the latest DC/OS (1.12), Mesosphere Github repo access and Docker credentials
+- Now updated to work with the latest DC/OS (1.12), Mesosphere Github repo access and Docker credentials
 
 ## Current Possibilities
-1. Manual Deployment
+1. Manual Jenkins Configuration of an Automated CI/CD Workflow 
 - Git build, Docker pull and automatic Jenkins deploy
 - Show that this is a functional Jenkins
 
 ![Show Output](URL)
 
 2. Scaled Deployment
-- Show that this is a scalable Jenkins solution by executing 50 jobs
+- Show that this is a scalable Jenkins solution by executing 50 jobs with dynamic task executors based on the available resources.
 
 ![DCOS - Jenkins Service Jobs](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkins2.png)
 
