@@ -223,8 +223,7 @@ EOF
 
 ![Jenkins Killed Executors](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceKilledJenkins3.png)
 
-## TBD (In order of priority)
+## TBD (In order of priority) ------------------------------------
 - demo.py: Change / remove DC/OS CLI profile check
 - demo.py: Change to bash (basically a rewrite)
-
-# --------------------------------------------------------------------
+## ---------------------------------------------------------------
