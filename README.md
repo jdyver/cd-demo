@@ -12,7 +12,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 2. Scaled Deployment
 - Show that this is a scalable Jenkins solution by executing 50 jobs with dynamically created task executors based on the available resources from DCOS.
 
-![DCOS - Jenkins Service Jobs](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkins2.png)
+![DCOS - Jenkins Service Jobs](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkinsOverview.png)
 
 ### Exercise 0. Prerequisites
 - I just wish this wasn't so bad
