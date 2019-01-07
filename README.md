@@ -76,6 +76,7 @@ Step 1. Setup Application
     - If doing the 50 job (Section 2), go ahead and clear the DCOS profiles
 
     `dcos cluster remove --all`
+
     - Connect to the cluster
     
     `dcos cluster add https://<your url>`
