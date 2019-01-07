@@ -127,7 +127,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 - Hit save
 
-#### Demo is now setup; To show the demo....
+#### Exercise 1 Demo is now setup; To show the demo....
 
 #### Step 4. Github Repo: edit site/_posts/2017-12-25-welcome-to-cd-demo.markdown
  - edit some text
@@ -147,32 +147,33 @@ EOF
 #### Step 5. Jenkins deploys the Jenkins_Deployed_App
 - Once the minute poll from Jenkins completes... (Can view from 'Console Output' within the cd-demo project)
     - Jenkins checks Github if there are any commits.
-    - Jenkins builds the container image in the DCOS sandbox and tags as latest
-    - Jenkins pushes container image to Dockerhub
-    - Jenkins tells Marathon (DCOS) to update/deploy the 'jenkins_deployed_app'
+    - Jenkins builds the container image in the DCOS sandbox and tags as latest.
+    - Jenkins pushes container image to Dockerhub.
+    - Jenkins tells Marathon (DCOS) to update/deploy the 'jenkins_deployed_app'.
 
 ![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-4.png)
 
-Step 6. Open a tab and go to the Marathon-LB's \<Master_IP\>
-
-- If it doesn't open either the jenkins_deployed_app isn't completely up or the port (HAPROXY) wasn't updated so go to MLB to pull what port it is running on
+#### Step 6. Open a tab and go to the Marathon-LB's \<Master_IP\>
+- Here you can see that the jenkins_deployed_app is deployed
+    - Marathon-LB automatically picked up the service port to serve the site at port 80
+        - Note: If it doesn't open either the jenkins_deployed_app isn't completely up or the port (HAPROXY) wasn't updated so go to MLB to pull what port it is running on (...or go back and change the HAPROXY IP, then commit).
 
 ![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/CD-Demo-Output.png)
 
 ### Exercise 2. Deploy 50 Jobs
-0. Prerequisites 0.1 and 0.2
+#### Step 0. Prerequisites 0.1 and 0.2
 
 - 0.2 Has to be done/checked every time
 
     `git branch`
 
-1. Single cluster configured for CLI
+#### Step 1. Single cluster configured for CLI
 
      `dcos cluster remove --all`
 
      `dcos cluster add http://<your url>`
 
-2. Install Jenkins
+#### Step 2. Install Jenkins
 
      a. Through CLI or UI
 
@@ -186,7 +187,7 @@ Step 6. Open a tab and go to the Marathon-LB's \<Master_IP\>
 
      — <b>slash at the end of the URL!</b>
 
-3. Run script
+#### Step 3. Run script
 
 — <b>slash at the end of the URL!</b>
 
@@ -196,15 +197,16 @@ Step 6. Open a tab and go to the Marathon-LB's \<Master_IP\>
 
 ![Python Dynamic-Agents Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/cd-demo_dynamic-agents.png)
 
-##### Exercise 2 Demo
-4. Go to the Jenkins UI
+#### Exercise 2 Demo
+
+#### Step 4. Go to the Jenkins UI
 
 ![Jenkins - 50 Jobs](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-50-Finale.png)
 
 What you see are 50 jobs that have been created through automation and are randomly timed to fail/succeed within 2 minutes.
 - Rerun for a more mixed view of jobs that have succeeded, failed/succeeded or just always failed.
 
-5. In the DC/OS UI, you can select the Jenkins Service and see the Jenkins executors dynamically scale out and then back in to manage these 50 jobs based on the available resources of the cluster.  In the example outputs below, there are limited resources or unlimited resources and shown by Jenkins deploying more executors automatically within DCOS based on the demand.
+#### Step 5. In the DC/OS UI, you can select the Jenkins Service and see the Jenkins executors dynamically scale out and then back in to manage these 50 jobs based on the available resources of the cluster.  In the example outputs below, there are limited resources or unlimited resources and shown by Jenkins deploying more executors automatically within DCOS based on the demand.
 
 - Below shows Jenkins running on a single node of resources so automatically deploying 4 executors within DCOS
 
