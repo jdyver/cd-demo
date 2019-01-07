@@ -172,7 +172,7 @@ EOF
 
     `dcos cluster remove --all`
 
-- Add the active cluster
+- Add the active cluster (Works with https also)
 
     `dcos cluster add http://<your url>`
 
@@ -202,18 +202,19 @@ EOF
 
 #### Step 4. Go to the Jenkins UI
 
+ - What you see are 50 jobs that have been created through automation and are randomly timed to fail/succeed within 2 minutes.
+     - Rerun for a more mixed view of jobs that have succeeded, failed/succeeded or just always failed.
+
 ![Jenkins - 50 Jobs](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-50-Finale.png)
 
-What you see are 50 jobs that have been created through automation and are randomly timed to fail/succeed within 2 minutes.
-- Rerun for a more mixed view of jobs that have succeeded, failed/succeeded or just always failed.
+#### Step 5. Show Jenkins Executor Scaling on DCOS
+ - In the DC/OS UI, you can select the Jenkins Service and see the Jenkins executors dynamically scale out and then back in to manage these 50 jobs based on the available resources of the DCOS cluster.  In the example outputs below, there are limited resources (Example 1) or more unlimited resources (Example 2) and shown by Jenkins deploying more executors automatically within DCOS based on the demand.
 
-#### Step 5. In the DC/OS UI, you can select the Jenkins Service and see the Jenkins executors dynamically scale out and then back in to manage these 50 jobs based on the available resources of the cluster.  In the example outputs below, there are limited resources or unlimited resources and shown by Jenkins deploying more executors automatically within DCOS based on the demand.
- - Below shows Jenkins running on a single node of resources so automatically deploying 4 executors within DCOS
-
+ - Example 1: Below shows Jenkins running on a single node of resources so automatically deploying 4 executors within DCOS
 
 ![Jenkins with Single Node Resources](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkins1.png)
 
- - Below shows Jenkins running on more resources so automatically deploying 8 executors within DCOS
+ - Example 2: Below shows Jenkins running on more resources so automatically deploying 8 executors within DCOS
 
 ![Jenkins with Multiple Node Resources](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkins2.png)
 
