@@ -163,38 +163,38 @@ EOF
 ### Exercise 2. Deploy 50 Jobs
 #### Step 0. Prerequisites 0.1 and 0.2
 
-- 0.2 Has to be done/checked every time
+ - 0.2 Has to be done/checked every time
 
     `git branch`
 
 #### Step 1. Single cluster configured for CLI
+ - Clear out the old/other cluster profiles (Requirement to be removed)
 
     `dcos cluster remove --all`
 
+- Add the active cluster
 
     `dcos cluster add http://<your url>`
 
 #### Step 2. Install Jenkins
+ a. Through CLI or UI
 
-     a. Through CLI or UI
+    `cd-demo jd$ dcos package install --yes jenkins`
 
-     `cd-demo jd$ dcos package install --yes jenkins`
+ b. DO NOT DO - JUST FOR NOTES; OPTION (Do not do this if you do not do 2a) 
 
-     b. DO NOT DO - JUST FOR NOTES; OPTION (Do not do this if you do not do 2a) 
+ — <b>slash at the end of the URL!</b>
 
-     — <b>slash at the end of the URL!</b>
+    `cd-demo jd$ python3 bin/demo.py install --latest http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
 
-     `cd-demo jd$ python3 bin/demo.py install --latest http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
-
-     — <b>slash at the end of the URL!</b>
+ — <b>slash at the end of the URL!</b>
 
 #### Step 3. Run script
+ — <b>slash at the end of the URL!</b>
 
-— <b>slash at the end of the URL!</b>
+    `cd-demo jd$ python3 bin/demo.py dynamic-agents http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
 
-`cd-demo jd$ python3 bin/demo.py dynamic-agents http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
-
-— <b>slash at the end of the URL!</b>
+ — <b>slash at the end of the URL!</b>
 
 ![Python Dynamic-Agents Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/cd-demo_dynamic-agents.png)
 
@@ -208,16 +208,16 @@ What you see are 50 jobs that have been created through automation and are rando
 - Rerun for a more mixed view of jobs that have succeeded, failed/succeeded or just always failed.
 
 #### Step 5. In the DC/OS UI, you can select the Jenkins Service and see the Jenkins executors dynamically scale out and then back in to manage these 50 jobs based on the available resources of the cluster.  In the example outputs below, there are limited resources or unlimited resources and shown by Jenkins deploying more executors automatically within DCOS based on the demand.
+ - Below shows Jenkins running on a single node of resources so automatically deploying 4 executors within DCOS
 
-- Below shows Jenkins running on a single node of resources so automatically deploying 4 executors within DCOS
 
 ![Jenkins with Single Node Resources](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkins1.png)
 
-- Below shows Jenkins running on more resources so automatically deploying 8 executors within DCOS
+ - Below shows Jenkins running on more resources so automatically deploying 8 executors within DCOS
 
 ![Jenkins with Multiple Node Resources](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkins2.png)
 
-- Once all of the jobs complete; Jenkins kills the executors and DCOS clears the resources for more / other jobs
+ - Once all of the jobs complete; Jenkins kills the executors and DCOS clears the resources for more / other jobs
 
 ![Jenkins Killed Executors](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceKilledJenkins3.png)
 
