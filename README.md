@@ -3,25 +3,25 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 - Now updated to work with the latest DC/OS (1.12), Mesosphere Github repo access and Docker credentials
 
 ## What Are We Showing
-### Exercise 1. Manual Setup of Jenkins Configuration of an Automated CI/CD Workflow 
+### Exercise 1. Manual Setup of Jenkins Configuration for an Automated CI/CD Workflow 
 - Git push, then automated Jenkins Git build,  pull to Dockerhub and deployed app into DCOS.
-- Shows the DCOS open source Jenkins is functional Jenkins and that DCOS can manage the automated resource handling for CICD.
+- Shows the DCOS open source Jenkins is functional and that DCOS can manage the automated resource handling for Continuous Integration and Continuous Deployment.
 
 ![DCOS Deployed Jenkins to CICD](https://github.com/jdyver/cd-demo-jd/blob/master/img/CD-Intro.png)
 
-### Exercise 2. Scaled Deployment
+### Exercise 2. Scaled Jenkins Deployment
 - Show that this is a scalable Jenkins solution by executing 50 jobs with dynamically created task executors based on the available resources from DCOS.
 
 ![DCOS - Jenkins Service Jobs](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkinsOverview.png)
 
-### Exercise 0. Prerequisites
+## Exercise 0. Prerequisites
 - I just wish this wasn't so bad
-#### Step 0.1 - Only needed for Manual Deployment (First run only)
-##### Item 1. Clone cd-demo to your unit and create/sync it to your Github repo
+### Step 0.1 - Exercise 1 Prerequisites (First run only)
+#### Item 1. Clone cd-demo to your unit and create/sync it to your Github repo
 - Command: `git clone https://github.com/jdyver/cd-demo-jd.git`
 
-#### Step 0.2 - Additional Steps Needed for Scaled Deployment
-##### Item 1. Setup Python3 and Pip3 (First run only needed)
+### Step 0.2 - Exercise 2 Prerequisites
+#### Item 1. Setup Python3 and Pip3 (First run only needed)
 
  - painful 30 minute installation - Just google away to get it right # I'll probably try to change this to bash later
 
@@ -29,13 +29,13 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
  b. Centos example: https://www.rosehosting.com/blog/how-to-install-python-3-6-4-on-centos-7/
 
-##### Item 2. Pip3: Install requirements
+#### Item 2. Pip3: Install requirements
 
     `pip3.6 install -r requirements.txt`
     
  a. CentOS (not logged in as root): Add sudo
 
-##### Item 3. Github Create repo/branch 
+#### Item 3. Github Create repo/branch 
 - Everytime - check cd-demo folder with 'git remote -v' or 'git branch'
 
  a. Manually create new repo within your Github account
@@ -61,14 +61,14 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
        - (ssh -T git@github.com success, but push still fails)  
             `git remote set-url origin git@github.com:jdyver/cd-demo.git` (your repo)
 
-##### Item 4. Dockerhub:             
+#### Item 4. Dockerhub:             
     - Ensure that you have a dockerhub account and you know the username and password
 
 
-### Exercise 1. Edit - Manual Setup of Jenkins to Automate  Git build, Docker pull and Jenkins deploy
-#### Step 0. Prerequisite 0.1
+## Exercise 1. Edit - Manual Setup of Jenkins to Automate  Git build, Docker pull and Jenkins deploy
+### Step 0. Prerequisite 0.1
 
-#### Step 1. Prepare DCOS
+### Step 1. Prepare DCOS
     
  a. Single cluster configured for CLI
  
@@ -86,13 +86,13 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
  c. Install Jenkins
 
-#### Step 2. Within your cd-demo Github repo:
+### Step 2. Within your cd-demo Github repo:
     - Edit file: conf/cd-demo-app.json - line 21
         - "HAPROXY_0_VHOST": "\<Public Agent IP\>",
 
 ![Edit HAPROXY](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-Deployed-App-HAPROXY2.png)
 
-#### Step 3. Prepare Jenkins:
+### Step 3. Prepare Jenkins:
 - Open the Jenkins UI from DC/OS
 - Credentials > System > Global Credentials > Add Credentials: Add Dockerhub account (Input Description)
 
@@ -127,9 +127,9 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 - Hit save
 
-#### Exercise 1 Demo is now setup; To show the demo....
+### Exercise 1 Demo is now setup; To show the demo....
 
-#### Step 4. Github Repo: edit site/_posts/2017-12-25-welcome-to-cd-demo.markdown
+### Step 4. Github Repo: edit site/_posts/2017-12-25-welcome-to-cd-demo.markdown
  - edit some text
 
 ```
@@ -144,7 +144,7 @@ This is an example post that you can make using Markdown to demonstrate a websit
 EOF
 ```
 
-#### Step 5. Jenkins deploys the Jenkins_Deployed_App
+### Step 5. Jenkins deploys the Jenkins_Deployed_App
 - Once the minute poll from Jenkins completes... (Can view from 'Console Output' within the cd-demo project)
     - Jenkins checks Github if there are any commits.
     - Jenkins builds the container image in the DCOS sandbox and tags as latest.
@@ -153,21 +153,21 @@ EOF
 
 ![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-4.png)
 
-#### Step 6. Open a tab and go to the Marathon-LB's \<Master_IP\>
+### Step 6. Open a tab and go to the Marathon-LB's \<Master_IP\>
 - Here you can see that the jenkins_deployed_app is deployed
     - Marathon-LB automatically picked up the service port to serve the site at port 80
         - Note: If it doesn't open either the jenkins_deployed_app isn't completely up or the port (HAPROXY) wasn't updated so go to MLB to pull what port it is running on (...or go back and follow step 2, then commit).
 
 ![CD Webpage Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/CD-Demo-Output.png)
 
-### Exercise 2. Deploy 50 Jobs
-#### Step 0. Prerequisites 0.1 and 0.2
+## Exercise 2. Deploy 50 Jobs
+### Step 0. Prerequisites 0.1 and 0.2
 
  - 0.2 Has to be done/checked every time
 
     `git branch`
 
-#### Step 1. Single cluster configured for CLI
+### Step 1. Single cluster configured for CLI
  - Clear out the old/other cluster profiles (Requirement to be removed)
 
     `dcos cluster remove --all`
@@ -176,7 +176,7 @@ EOF
 
     `dcos cluster add http://<your url>`
 
-#### Step 2. Install Jenkins
+### Step 2. Install Jenkins
  a. Through CLI or UI
 
     `cd-demo jd$ dcos package install --yes jenkins`
@@ -189,7 +189,7 @@ EOF
 
  — <b>slash at the end of the URL!</b>
 
-#### Step 3. Run script
+### Step 3. Run script
  — <b>slash at the end of the URL!</b>
 
     `cd-demo jd$ python3 bin/demo.py dynamic-agents http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
@@ -198,16 +198,16 @@ EOF
 
 ![Python Dynamic-Agents Output](https://github.com/jdyver/cd-demo-jd/blob/master/img/cd-demo_dynamic-agents.png)
 
-#### Exercise 2 Demo
+### Exercise 2 Demo
 
-#### Step 4. Go to the Jenkins UI
+### Step 4. Go to the Jenkins UI
 
  - What you see are 50 jobs that have been created through automation and are randomly timed to fail/succeed within 2 minutes.
      - Rerun for a more mixed view of jobs that have succeeded (Sunny icon), failed/succeeded (Cloudy icon)  or just always failed (Lightning Cloud icon).
 
 ![Jenkins - 50 Jobs](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-50-Finale.png)
 
-#### Step 5. Show Jenkins Executor Scaling on DCOS
+### Step 5. Show Jenkins Executor Scaling on DCOS
  - In the DCOS UI, you can select the Jenkins Service and see the Jenkins executors dynamically scale out and then back in to manage these 50 jobs based on the available resources of the DCOS cluster.  In the example outputs below, there are limited resources (Example 1) or more unlimited resources (Example 2) and shown by Jenkins deploying more executors automatically within DCOS based on the demand.
 
  - Example 1: Below shows Jenkins running on a single node of resources so automatically deploying 4 executors within DCOS
@@ -222,7 +222,7 @@ EOF
 
 ![Jenkins Killed Executors](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceKilledJenkins3.png)
 
-### TBD (In order of priority)
+## TBD (In order of priority)
 - demo.py: Change / remove DC/OS CLI profile check
 - demo.py: Change to bash (basically a rewrite)
 
