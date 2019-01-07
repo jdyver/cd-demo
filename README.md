@@ -72,21 +72,21 @@ Item 3. Github Create repo/branch
 
 #### 1. Setup Application
     
-a. Single cluster configured for CLI
+ a. Single cluster configured for CLI
  
-    - If doing the 50 job (Section 2), go ahead and clear the DCOS profiles
+ - If doing the 50 job (Section 2), go ahead and clear the DCOS profiles
 
     `dcos cluster remove --all`
 
-    - Connect to the cluster
+ - Connect to the cluster
     
     `dcos cluster add https://<your url>`
 
-    b. Install Marathon-LB
+ b. Install Marathon-LB
  
-    - Get MLB IP 
+ - Get MLB IP 
 
-    c. Install Jenkins
+ c. Install Jenkins
 
 #### 2. Within your cd-demo Github repo:
     - Edit file: conf/cd-demo-app.json - line 21
