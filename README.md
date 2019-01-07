@@ -87,7 +87,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
  c. Install Jenkins
 
-### Step 2. Within your cd-demo Github repo:
+### Step 2. Setup cd-demo's JSON:
  - Edit file: conf/cd-demo-app.json - line 21
      - "HAPROXY_0_VHOST": "\<Public Agent IP\>",
 
@@ -100,9 +100,10 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 ![Jenkins - Credentials](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-Credentials.png)
 
 - Select New Job:
-    - Select Freestyle and give it a name
-    - Source Code Mgmt Section Git:
-        1. Repo URL: `https://github.com/jdyver/cd-demo` (Your Github URL for the cd-demo repo)
+    - Select Freestyle project, give it a name and select OK at the bottom
+    - Setup Source Code Mgmt Section 
+    - Git:
+        - Repo URL: `https://github.com/jdyver/cd-demo` (Your Github URL for the cd-demo repo)
 
 ![Jenkins - Source Code](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-1.png)
 
@@ -112,14 +113,16 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 ![Jenkins - Polling](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-2.png)
 
-- Build > [Add Build Step] > Docker Build and Publish > 
+- Setup Dockerhub
+    - Select Build > [Add Build Step] > Docker Build and Publish > 
     - Repo Name: `jdyver/cd-demo` (Your Docker repo username + '/cd-demo')
     - Tag: `$GIT_COMMIT`
     - Registry credentials: `Dockerhub`
 
 ![Jenkins - Build](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-3.png)
 
--  Post-build Actions > [Add post-build action] > Marathon Deployment > [Advanced] >
+-  Setup Marathon
+    - Select Post-build Actions > [Add post-build action] > Marathon Deployment > [Advanced] >
     - Marathon URL: `http://leader.mesos:8080`
     - Definition File: `conf/cd-demo-app.json`
     - Docker Image: `jdyver/cd-demo:$GIT_COMMIT`
