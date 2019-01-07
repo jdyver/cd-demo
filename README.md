@@ -171,6 +171,7 @@ EOF
 
     `dcos cluster remove --all`
 
+
     `dcos cluster add http://<your url>`
 
 #### Step 2. Install Jenkins
