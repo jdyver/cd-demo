@@ -14,12 +14,14 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 ![DCOS - Jenkins Service Jobs](https://github.com/jdyver/cd-demo-jd/blob/master/img/DCOS-ServiceJenkinsOverview.png)
 
-## Exercise 0. Prerequisites
-### Step 0.1 - Exercise 1 Prerequisites (First run only)
+## Prerequisites
+### Exercise 1 Prerequisites (First run only)
+
 #### Item 1. Clone cd-demo to your unit and create/sync it to your Github repo
 - Command: `git clone https://github.com/jdyver/cd-demo-jd.git`
 
-### Step 0.2 - Exercise 2 Prerequisites
+### Exercise 2 Prerequisites
+
 #### Item 1. Setup Python3 and Pip3 (First run only needed)
 
  - painful 30 minute installation - Just google away to get it right # I'll probably try to change this to bash later
@@ -30,7 +32,9 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
 #### Item 2. Pip3: Install requirements
 
-    `pip3.6 install -r requirements.txt`
+```
+pip3.6 install -r requirements.txt
+```
     
  a. CentOS (not logged in as root): Add sudo
 
@@ -43,7 +47,8 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 
  c. cd cd-demo
 
- d. git remote set-url upstream https://github.com/<Your Username>/<New Repo Name>
+ d. git remote set-url upstream https://github.com\/\<Your Username\>\/\<New Repo Name\>
+- git remote set-url --push origin \<https://github.com\/\>\/New_Repo_Name
 
  e. git push -u upstream master
 
@@ -61,7 +66,8 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
             `git remote set-url origin git@github.com:jdyver/cd-demo.git` (your repo)
 
 #### Item 4. Dockerhub:             
-    - Ensure that you have a dockerhub account and you know the username and password
+
+- Ensure that you have a dockerhub account and you know the username and password
 
 
 ## Exercise 1. Manual Setup of Jenkins Configuration for an Automated CI/CD Workflow
@@ -195,14 +201,18 @@ EOF
 
  — <b>slash at the end of the URL!</b>
 
-    `cd-demo jd$ python3 bin/demo.py install --latest http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
+```
+cd-demo jd$ python3 bin/demo.py install --latest http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/
+```
 
  — <b>slash at the end of the URL!</b>
 
 ### Step 3. Run the cd-demo 50 job script
  — <b>slash at the end of the URL!</b>
 
+```
     `cd-demo jd$ python3 bin/demo.py dynamic-agents http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
+```
 
  — <b>slash at the end of the URL!</b>
 
