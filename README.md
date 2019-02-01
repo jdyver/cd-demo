@@ -91,6 +91,48 @@ pip3.6 install -r requirements.txt
  
  - Get MLB IP 
 
+ - (Option: Edge-LB; Thanks AF; To be tested)
+
+Edge-LB-JenkinsOPT.json
+```
+{
+    "apiVersion": "V2",
+    "name": "edgelb-proxy-jenkins",
+    "count": 1,
+    "autoCertificate": true,
+    "haproxy": {
+        "frontends": [
+          {
+                "bindPort": 11080,
+                "protocol": "HTTP",
+                "linkBackend": {
+                    "defaultBackend": "cicd"
+                }
+            }
+        ],
+        "backends": [
+            {
+                "name": "cicd",
+                "protocol": "HTTP",
+                "services": [
+                    {
+                        "marathon": {
+                            "serviceID": "/jenkins-deployed-app"
+                        },
+                        "endpoint": {
+                            "portName": "jenkins-deployed-app"
+                        }
+                    }
+                ]
+            }
+        ],
+        "stats": {
+            "bindPort": 6090
+        }
+    }
+}
+```
+
  c. Install Jenkins
 
 ### Step 2. Setup cd-demo's JSON:
@@ -131,7 +173,7 @@ pip3.6 install -r requirements.txt
 -  Setup Marathon
     - Select Post-build Actions > [Add post-build action] > Marathon Deployment > [Advanced] >
     - Marathon URL: `http://leader.mesos:8080`
-    - Definition File: `conf/cd-demo-app.json`
+    - Definition File: `conf/cd-demo-app.json` (Option: null; Update: marathon.json)
     - Docker Image: `jdyver/cd-demo:$GIT_COMMIT`
 
 ![Jenkins - Post-build](https://github.com/jdyver/cd-demo-jd/blob/master/img/JenkinsSetup-5.png)
@@ -210,6 +252,7 @@ cd-demo jd$ python3 bin/demo.py install --latest $(dcos config show core.dcos_ur
 Actual Input:
 ```
 JD # echo "python3 bin/demo.py dynamic-agents $(dcos config show core.dcos_url)/"
+
 python3 bin/demo.py dynamic-agents https://jdyckowsk-elasticl-y6v3kcwpkpoz-1132299876.us-west-2.elb.amazonaws.com/
 ```
 
@@ -219,7 +262,7 @@ python3 bin/demo.py dynamic-agents https://jdyckowsk-elasticl-y6v3kcwpkpoz-11322
  — <b>slash at the end of the URL!</b>
 
 ```
-cd-demo jd$ python3 bin/demo.py dynamic-agents $(dcos config show core.dcos_url)
+cd-demo jd$ python3 bin/demo.py dynamic-agents $(dcos config show core.dcos_url)/
 ```
 
  — <b>slash at the end of the URL!</b>
