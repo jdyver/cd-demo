@@ -35,7 +35,7 @@ A scale and continuous delivery demo using Jenkins on DC/OS.
 ```
 pip3.6 install -r requirements.txt
 ```
-    
+
  a. CentOS (not logged in as root): Add sudo
 
 #### Item 3. Github Create repo/branch 
@@ -195,14 +195,22 @@ EOF
 ### Step 2. Install Jenkins
  a. Through CLI or UI
 
-    `cd-demo jd$ dcos package install --yes jenkins`
+```
+cd-demo jd$ dcos package install --yes jenkins
+```
 
  b. DO NOT DO - JUST FOR NOTES; OPTION (Do not do this if you do not do 2a) 
 
  — <b>slash at the end of the URL!</b>
 
 ```
-cd-demo jd$ python3 bin/demo.py install --latest http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/
+cd-demo jd$ python3 bin/demo.py install --latest $(dcos config show core.dcos_url)/
+```
+
+Actual Input:
+```
+JD # echo "python3 bin/demo.py dynamic-agents $(dcos config show core.dcos_url)/"
+python3 bin/demo.py dynamic-agents https://jdyckowsk-elasticl-y6v3kcwpkpoz-1132299876.us-west-2.elb.amazonaws.com/
 ```
 
  — <b>slash at the end of the URL!</b>
@@ -211,7 +219,7 @@ cd-demo jd$ python3 bin/demo.py install --latest http://jdyckowsk-elasticl-108ld
  — <b>slash at the end of the URL!</b>
 
 ```
-    `cd-demo jd$ python3 bin/demo.py dynamic-agents http://jdyckowsk-elasticl-108ld3uvv6r15-1683503373.us-west-2.elb.amazonaws.com/`
+cd-demo jd$ python3 bin/demo.py dynamic-agents $(dcos config show core.dcos_url)
 ```
 
  — <b>slash at the end of the URL!</b>
