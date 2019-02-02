@@ -47,8 +47,8 @@ pip3.6 install -r requirements.txt
 
  c. cd cd-demo
 
- d. git remote set-url upstream https://github.com\/\<Your Username\>\/\<New Repo Name\>
-- OR just git remote set-url --push origin https://github.com\/<Your Username\>\/New_Repo_Name
+ d. git remote set-url upstream https://github.com/<Your Username\>/\<New Repo Name\>
+- OR just git remote set-url --push origin https://github.com/<Your Username\>/New_Repo_Name
 
  e. git push -u upstream master
 
