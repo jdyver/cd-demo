@@ -165,7 +165,7 @@ Jenkins has been installed.
 - UPDATE! IF Version 3.5.2-2.107.2 or older; Skip this step (IF you have no idea, then do this step)
     - Add Pipeline: Step API plugin within Jenkins
     - Manage Jenkins > [Scroll Down] Manage Plugins > [Select] Pipeline: Step API > Select [Download now and install after restart] > Select [Restart after update]
-    - Detailed steps: TBD
+    - Detailed steps: https://github.com/jdyver/cd-demo-jd/tree/master/notes
 
 - Setup New Job:
     - Select New Item (New Job), Freestyle project, give it a name and select OK at the bottom
