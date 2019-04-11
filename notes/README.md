@@ -9,8 +9,9 @@ Do that ^^
 - [Scroll Down] Manage Plugins > 
 ![Jenkins - ManagePlugins](https://github.com/jdyver/cd-demo-jd/blob/master/notes/img/3ManagePl.png)
 - [Select] Pipeline: Step API > 
-![Jenkins - SelectPlugin](https://github.com/jdyver/cd-demo-jd/blob/master/notes/img/4SelectPl.png)
-- Select [Download now and install after restart ^ ] > 
+![Jenkins - SelectPlugin](https://github.com/jdyver/cd-demo-jd/blob/master/notes/img/4aSelectPl.png)
+- Select [Download now and install after restart] > 
+![Jenkins - SelectDownload](https://github.com/jdyver/cd-demo-jd/blob/master/notes/img/4bDownloadInstall.png)
 - Select [Restart Jenkins when installation is complete and no jobs are running]
 ![Jenkins - Restart](https://github.com/jdyver/cd-demo-jd/blob/master/notes/img/5Restart.png)
 
