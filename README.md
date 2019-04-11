@@ -134,6 +134,21 @@ Edge-LB-JenkinsOPT.json
 ```
 
  c. Install Jenkins
+ - Demo preference: Version 3.5.2-2.107.2 or older
+ ```
+jamess-mbp:cd-demo jd$ dcos package install jenkins --package-version=3.5.2-2.107.2 --yes
+By Deploying, you agree to the Terms and Conditions https://mesosphere.com/catalog-terms-conditions/#certified-services
+WARNING: If you didn't provide a value for `storage.host-volume` (either using the CLI or via the Advanced Install dialog),
+YOUR DATA WILL NOT BE SAVED IN ANY WAY.
+
+Installing Marathon app for package [jenkins] version [3.5.2-2.107.2]
+Jenkins has been installed.
+ ```
+
+ - Latest: Version 3.5.4-2.150.1 or later
+ ```
+ jamess-mbp:cd-demo jd$ dcos package install jenkins --yes
+ ```
 
 ### Step 2. Setup cd-demo's JSON:
  - Edit file: conf/cd-demo-app.json - line 21
@@ -146,6 +161,11 @@ Edge-LB-JenkinsOPT.json
 - Credentials > System > Global Credentials > Add Credentials: Add Dockerhub account (Input Description)
 
 ![Jenkins - Credentials](https://github.com/jdyver/cd-demo-jd/blob/master/img/Jenkins-Credentials.png)
+
+- UPDATE! IF Version 3.5.2-2.107.2 or older; Skip this step (IF you have no idea, then do this step)
+    - Add Pipeline: Step API plugin within Jenkins
+    - Manage Jenkins > [Scroll Down] Manage Plugins > [Select] Pipeline: Step API > Select [Download now and install after restart] > Select [Restart after update]
+    - Detailed steps: TBD
 
 - Setup New Job:
     - Select New Item (New Job), Freestyle project, give it a name and select OK at the bottom
