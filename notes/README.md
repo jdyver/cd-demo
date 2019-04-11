@@ -10,9 +10,9 @@ Do that ^^
 ![Jenkins - ManagePlugins](https://github.com/jdyver/cd-demo-jd/blob/master/notes/img/3ManagePl.png)
 - [Select] Pipeline: Step API > 
 ![Jenkins - SelectPlugin](https://github.com/jdyver/cd-demo-jd/blob/master/notes/img/4SelectPl.png)
-- Select [Download now and install after restart] > 
+- Select [Download now and install after restart ^ ] > 
 - Select [Restart after update]
 ![Jenkins - Restart](https://github.com/jdyver/cd-demo-jd/blob/master/notes/img/5Restart.png)
 
-### Check for option in new job
+### Check for option in new job > Build > [Add build step]
 ![Jenkins - Validated](https://github.com/jdyver/cd-demo-jd/blob/master/notes/img/6Validate.png)
