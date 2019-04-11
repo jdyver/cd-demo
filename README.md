@@ -1,6 +1,7 @@
 # cd-demo-jd
 A scale and continuous delivery demo using Jenkins on DC/OS.
-- Now updated to work with the latest DC/OS (1.12), Mesosphere Github repo access and Docker credentials
+- Now updated for adding the Docker build and publish 
+- Works with the latest DC/OS (1.12), Mesosphere Github repo access and Docker credentials
 
 ## What We Are Showing
 ### Exercise 1. Manual Setup of Jenkins Configuration for an Automated CI/CD Workflow 
