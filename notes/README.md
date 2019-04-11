@@ -11,7 +11,7 @@ Do that ^^
 - [Select] Pipeline: Step API > 
 ![Jenkins - SelectPlugin](https://github.com/jdyver/cd-demo-jd/blob/master/notes/img/4SelectPl.png)
 - Select [Download now and install after restart ^ ] > 
-- Select [Restart after update]
+- Select [Restart Jenkins when installation is complete and no jobs are running]
 ![Jenkins - Restart](https://github.com/jdyver/cd-demo-jd/blob/master/notes/img/5Restart.png)
 
 ### Check for option in new job > Build > [Add build step]
