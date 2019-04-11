@@ -4,7 +4,7 @@ Do that ^^
 
 ## Here are the detailed screenshot steps
 - Manage Jenkins > 
-
+![Jenkins - UI](https://github.com/jdyver/cd-demo-jd/blob/master/notes/img/1JenkinsUI.png)
 - [Scroll Down] Manage Plugins > 
 
 - [Select] Pipeline: Step API > 
