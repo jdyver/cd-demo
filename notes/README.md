@@ -14,6 +14,7 @@ Do that ^^
 ![Jenkins - SelectDownload](https://github.com/jdyver/cd-demo-jd/blob/master/notes/img/4bDownloadInstall.png)
 - Select [Restart Jenkins when installation is complete and no jobs are running]
 ![Jenkins - Restart](https://github.com/jdyver/cd-demo-jd/blob/master/notes/img/5Restart.png)
+- Refresh page after a few minutes if it doesn't do it automatically
 
 ### Check for option in new job > Build > [Add build step]
 ![Jenkins - Validated](https://github.com/jdyver/cd-demo-jd/blob/master/notes/img/6Validate.png)
